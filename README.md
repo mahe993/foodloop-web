@@ -1,30 +1,55 @@
-# React + TypeScript + Vite
+# FoodLoop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The only food recommendation playlist you'll need!
 
-Currently, two official plugins are available:
+FoodLoop is a mobile-first web application that combines your love for food and music by providing personalized food recommendation playlists.
 
--   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
--   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- Whether you're cooking, dining, or just enjoying a meal, Foodie Beats has the perfect soundtrack for your culinary experience. -->
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<!-- - **Food-Driven Playlists:** Enjoy curated playlists that complement different cuisines and dining occasions.
+- **User Profiles:** Create and customize your profile to receive personalized playlist recommendations based on your culinary preferences.
+- **Search and Discover:** Explore a vast library of playlists, search for specific genres, or discover new music to pair with your favorite dishes.
+- **Collaborative Playlists:** Invite friends to collaborate on playlists, making it a social experience to curate the perfect foodie playlist. -->
 
--   Configure the top-level `parserOptions` property like this:
+## Tech Stack
 
-```js
-export default {
-    // other rules...
-    parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        project: ['./tsconfig.json', './tsconfig.node.json'],
-        tsconfigRootDir: __dirname,
-    },
-};
+-   **Frontend:** Built using React for a seamless cross-platform experience.
+-   **Backend:** Powered by GO providing robust and efficient server-side functionality.
+-   **Database:** Firebase is used for real-time data storage and synchronization.
+-   **Authentication:** Secure user authentication handled through Firebase authentication services.
+
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/mahe993/foodloop-web.git
 ```
 
--   Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
--   Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
--   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Setup .env and retrieve values:
+
+```bash
+cp .example.env .env.local
+```
+
+4. Run the app locally:
+
+```bash
+npm run dev
+```
+
+## Best Practices
+
+Enter best practices here
+
+## Acknowledgments
+
+-   Special thanks to [contributors](CONTRIBUTORS.md) who have dedicated their time and effort to make FoodLoop what it is today.
