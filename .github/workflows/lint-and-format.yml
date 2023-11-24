@@ -23,5 +23,5 @@ jobs:
 
       - name: Run ESLint and Prettier checks
         run: |
-          npx prettier -c .
-          npx eslint .
+          npx prettier -c --ignore-path .prettierignore .
+          npx eslint --ignore-path .eslintignore .
