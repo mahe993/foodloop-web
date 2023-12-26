@@ -1,5 +1,7 @@
-import { Box, SxProps } from '@mui/material';
+import { SxProps } from '@mui/material';
 import { ReactNode } from 'react';
+import { useTheme } from '@mui/material/styles';
+import FLBox from '../../layouts/Box/FLBox';
 
 type FLPageProps = {
     children: ReactNode;
@@ -7,20 +9,21 @@ type FLPageProps = {
 };
 
 function FLPage({ children, sx }: FLPageProps): JSX.Element {
+    const theme = useTheme();
     return (
-        <Box
+        <FLBox
             sx={{
                 paddingInline: '2%',
-                display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
                 minHeight: '100dvh',
+                // TODO: check if needed
+                maxWidth: theme.breakpoints.values.laptop,
+                width: '100dvw',
                 ...sx,
             }}
         >
             {children}
-        </Box>
+        </FLBox>
     );
 }
 
