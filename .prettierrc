@@ -4,6 +4,16 @@
     "singleQuote": true,
     "trailingComma": "all",
     "arrowParens": "avoid",
-    "jsxSingleQuote": false,
-    "bracketSpacing": true
+    "bracketSpacing": true,
+    "overrides": [
+        {
+            "files": ["*.jsx", "*.tsx"],
+            "options": {
+                "jsxSingleQuote": false,
+                "jsxBracketSameLine": false,
+                "jsxPrintWidth": 120,
+                "jsxTrailingComma": "all"
+            }
+        }
+    ]
 }
