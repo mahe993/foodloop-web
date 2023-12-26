@@ -33,7 +33,7 @@ export default function BaseHeader({
                 ...sxContainer,
             }}
         >
-            <FLBox sx={{ flex: 0.2, height: '100%' }}>{leftIcon}</FLBox>
+            <FLBox sx={{ flex: 0.2, height: '100%', justifyContent: 'flex-start' }}>{leftIcon}</FLBox>
             <FLBox
                 sx={{
                     flex: 1,
@@ -67,8 +67,10 @@ export default function BaseHeader({
                     {addressLineTwo}
                 </FLBox>
             </FLBox>
-            <FLBox sx={{ flex: 0.2, height: 'inherit' }}>{rightPrimaryIcon}</FLBox>
-            <FLBox sx={{ flex: 0.2, height: 'inherit' }}>{rightSecondaryIcon}</FLBox>
+            <FLBox sx={{ flex: 0.4, height: 'inherit', gap: '10%', justifyContent: 'flex-end' }}>
+                <FLBox>{rightPrimaryIcon}</FLBox>
+                <FLBox>{rightSecondaryIcon}</FLBox>
+            </FLBox>
         </FLBox>
     );
 }
