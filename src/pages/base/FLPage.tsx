@@ -10,10 +10,10 @@ type FLPageProps = {
 
 function FLPage({ children, sx }: FLPageProps): JSX.Element {
     const theme = useTheme();
+
     return (
         <FLBox
             sx={{
-                paddingInline: '2%',
                 flexDirection: 'column',
                 minHeight: '100dvh',
                 // TODO: check if needed
