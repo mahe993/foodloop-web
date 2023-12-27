@@ -17,7 +17,7 @@ function FLPage({ children, sx }: FLPageProps): JSX.Element {
                 flexDirection: 'column',
                 minHeight: '100dvh',
                 // TODO: check if needed
-                maxWidth: theme.breakpoints.values.laptop,
+                maxWidth: theme.breakpoints.values.tablet,
                 width: '100dvw',
                 ...sx,
             }}
