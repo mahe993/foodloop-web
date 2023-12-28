@@ -10,7 +10,7 @@ export type FLHeaderProps = {
     leftIcon?: JSX.Element;
     rightPrimaryIcon?: JSX.Element;
     rightSecondaryIcon?: JSX.Element;
-    sxContainer?: SxProps;
+    sx?: SxProps;
 };
 
 export default function FLHeader({
@@ -19,7 +19,7 @@ export default function FLHeader({
     leftIcon = <MenuRoundedIcon />,
     rightPrimaryIcon = <FavoriteBorderRoundedIcon />,
     rightSecondaryIcon = <ShoppingCartOutlinedIcon />,
-    sxContainer,
+    sx,
 }: FLHeaderProps): JSX.Element {
     return (
         <BaseHeader
@@ -28,7 +28,7 @@ export default function FLHeader({
             leftIcon={leftIcon}
             rightPrimaryIcon={rightPrimaryIcon}
             rightSecondaryIcon={rightSecondaryIcon}
-            sxContainer={sxContainer}
+            sxContainer={sx}
         />
     );
 }
