@@ -15,7 +15,9 @@ function FLPage({ children, sx }: FLPageProps): JSX.Element {
         <FLBox
             sx={{
                 flexDirection: 'column',
-                minHeight: '100dvh',
+                // extra 1 so that scroll bar is always present
+                // prevents horizontal shake
+                minHeight: '101dvh',
                 // TODO: check if needed
                 maxWidth: theme.breakpoints.values.tablet,
                 width: '100dvw',
