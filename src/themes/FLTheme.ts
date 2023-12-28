@@ -10,7 +10,7 @@ const FLTheme = createTheme({
         },
     },
     palette: {
-        mode: 'dark', // Set the theme mode to dark
+        mode: 'dark',
         foodloop: {
             main: alpha('#D70F64', 1),
             light: alpha('#D70F64', 0.5),
@@ -24,13 +24,13 @@ export default FLTheme;
 
 declare module '@mui/material/styles' {
     interface BreakpointOverrides {
-        xs: false; // removes the `xs` breakpoint
+        xs: false;
         sm: false;
         md: false;
         lg: false;
         xl: false;
         mobile: true;
-        tablet: true; // adds the `tablet` breakpoint
+        tablet: true;
         laptop: true;
         desktop: true;
     }
