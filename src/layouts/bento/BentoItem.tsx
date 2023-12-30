@@ -67,7 +67,7 @@ export default function BentoItem({
                     src={imgSrc}
                     style={{
                         display: 'block',
-                        width: '100%',
+                        height: '100%',
                         objectFit: 'contain',
                         position: 'absolute',
                     }}
