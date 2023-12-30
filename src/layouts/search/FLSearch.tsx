@@ -7,7 +7,7 @@ import FLBox from '../box/FLBox';
 
 export default function FLSearch(): JSX.Element {
     const [openSearch, setOpenSearch] = useState<boolean>(false);
-    const { isHidden } = useHideOnScroll();
+    const { isHidden, scrollPosition } = useHideOnScroll();
 
     const theme = useTheme();
 
@@ -29,7 +29,7 @@ export default function FLSearch(): JSX.Element {
                     open search button
                 </FLBox>
             </Collapse>
-            <FLSearchBox open={openSearch}>
+            <FLSearchBox offsetY={scrollPosition} open={openSearch}>
                 <FLSearchContent
                     closeSearch={() => {
                         setOpenSearch(false);

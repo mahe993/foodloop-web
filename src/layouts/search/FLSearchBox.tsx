@@ -1,32 +1,16 @@
-import { useEffect, useRef, ReactNode } from 'react';
+import { useEffect, ReactNode } from 'react';
 import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Slide from '@mui/material/Slide';
 
 type FLSearchBoxProps = {
     open: boolean;
-
+    offsetY: number;
     children: ReactNode;
 };
 
-export default function FLSearchBox({ open, children }: FLSearchBoxProps): JSX.Element {
-    const scrollPosition = useRef<number>(0);
-
+export default function FLSearchBox({ open, offsetY, children }: FLSearchBoxProps): JSX.Element {
     const theme = useTheme();
-
-    useEffect(() => {
-        const updateBoxTop = (): void => {
-            const scrollY = window.scrollY;
-            if (scrollY != scrollPosition.current) scrollPosition.current = scrollY;
-        };
-
-        window.addEventListener('scroll', updateBoxTop);
-
-        // Clean up the event listener on component unmount
-        return () => {
-            window.removeEventListener('scroll', updateBoxTop);
-        };
-    }, []);
 
     useEffect(() => {
         if (open) {
@@ -45,7 +29,7 @@ export default function FLSearchBox({ open, children }: FLSearchBoxProps): JSX.E
                     position: 'absolute',
                     bgcolor: 'white',
                     color: 'black',
-                    top: scrollPosition.current,
+                    top: offsetY,
                     width: '100%',
                     // remove maxWidth if using full desktop page
                     maxWidth: theme.breakpoints.values.tablet,

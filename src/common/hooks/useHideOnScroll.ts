@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 type UseHideOnScroll = {
     isHidden: boolean;
+    scrollPosition: number;
 };
 
 export default function useHideOnScroll(): UseHideOnScroll {
+    const scrollPosition = useRef(0);
     const [isHidden, setIsHidden] = useState(false);
 
     useEffect(() => {
@@ -24,12 +26,23 @@ export default function useHideOnScroll(): UseHideOnScroll {
             prevScrollPos = currScrollPos;
         };
 
-        window.addEventListener('scroll', handleScroll);
+        const updateBoxTop = (): void => {
+            const scrollY = window.scrollY;
+            if (scrollY != scrollPosition.current) scrollPosition.current = scrollY;
+        };
+
+        window.addEventListener('scroll', () => {
+            updateBoxTop();
+            handleScroll();
+        });
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', () => {
+                updateBoxTop();
+                handleScroll();
+            });
         };
     }, []);
 
-    return { isHidden };
+    return { isHidden, scrollPosition: scrollPosition.current };
 }
