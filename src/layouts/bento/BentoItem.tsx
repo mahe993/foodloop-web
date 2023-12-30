@@ -54,11 +54,12 @@ export default function BentoItem({
                 sx={{
                     alignSelf: 'flex-end',
                     flex: 1,
-                    width: '60%',
-                    height: '50%',
+                    width: '80%',
+                    height: '60%',
                     overflow: 'hidden',
                     position: 'relative',
                     justifyContent: 'flex-end',
+                    border: 1,
                 }}
             >
                 <img
@@ -66,7 +67,7 @@ export default function BentoItem({
                     src={imgSrc}
                     style={{
                         display: 'block',
-                        width: '100%',
+                        height: '100%',
                         objectFit: 'contain',
                         position: 'absolute',
                     }}
