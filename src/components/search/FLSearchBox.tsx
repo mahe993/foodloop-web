@@ -33,7 +33,7 @@ export default function FLSearchBox({ open, offsetY, children }: FLSearchBoxProp
                     width: '100%',
                     // remove maxWidth if using full desktop page
                     maxWidth: theme.breakpoints.values.tablet,
-                    minHeight: '100dvh',
+                    minHeight: '100svh',
                     paddingInline: '2%',
                     paddingBlockStart: '2%',
                 }}

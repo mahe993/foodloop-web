@@ -1,7 +1,7 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material';
 import FLTheme from './themes/FLTheme';
-import LandingPage from './pages/landingPage/LandingPage';
+import LandingPage from './pages/landingPage/FLLandingPage';
 
 export default function App(): JSX.Element {
     return (

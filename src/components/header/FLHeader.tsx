@@ -1,4 +1,4 @@
-import BaseHeader from '../../base/header/BaseHeader';
+import BaseHeader from '../base/header/BaseHeader';
 import { SxProps } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
@@ -14,8 +14,8 @@ export type FLHeaderProps = {
 };
 
 export default function FLHeader({
-    addressLineOne = 'Address line 1',
-    addressLineTwo = 'Address line 2',
+    addressLineOne = 'Afro Asia',
+    addressLineTwo = '63 Robinson Rd, Singapore 068894',
     leftIcon = <MenuRoundedIcon />,
     rightPrimaryIcon = <FavoriteBorderRoundedIcon />,
     rightSecondaryIcon = <ShoppingCartOutlinedIcon />,

@@ -3,7 +3,7 @@ import FLSearchBox from './FLSearchBox';
 import FLSearchContent from './FLSearchContent';
 import { useState } from 'react';
 import useHideOnScroll from '../../common/hooks/useHideOnScroll';
-import FLBox from '../box/FLBox';
+import FLBox from '../../layouts/box/FLBox';
 
 export default function FLSearch(): JSX.Element {
     const [openSearch, setOpenSearch] = useState<boolean>(false);
@@ -22,7 +22,7 @@ export default function FLSearch(): JSX.Element {
                     onClick={handleClick}
                     sx={{
                         bgcolor: theme.palette.foodloop.main,
-                        height: '7dvh',
+                        height: '7svh',
                         width: '100%',
                     }}
                 >
