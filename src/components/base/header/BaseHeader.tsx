@@ -26,8 +26,8 @@ export default function BaseHeader({
             sx={{
                 width: '100%',
                 bgcolor: theme.palette.foodloop.main,
-                minHeight: '10svh',
-                height: '10svh',
+                minHeight: '12svh',
+                height: '12svh',
                 paddingInline: '2%',
                 gap: '2%',
                 ...sxContainer,

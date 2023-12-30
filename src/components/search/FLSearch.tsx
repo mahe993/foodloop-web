@@ -22,7 +22,7 @@ export default function FLSearch(): JSX.Element {
                     onClick={handleClick}
                     sx={{
                         bgcolor: theme.palette.foodloop.main,
-                        height: '7svh',
+                        height: '8svh',
                         width: '100%',
                     }}
                 >
