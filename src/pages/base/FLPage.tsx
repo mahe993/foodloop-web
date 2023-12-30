@@ -1,7 +1,7 @@
 import { SxProps } from '@mui/material';
 import { ReactNode } from 'react';
 import { useTheme } from '@mui/material/styles';
-import FLBox from '../../layouts/Box/FLBox';
+import FLBox from '../../layouts/box/FLBox';
 
 type FLPageProps = {
     children: ReactNode;

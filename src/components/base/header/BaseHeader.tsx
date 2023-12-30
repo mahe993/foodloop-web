@@ -1,5 +1,5 @@
 import { SxProps, useTheme } from '@mui/material';
-import FLBox from '../../../layouts/Box/FLBox';
+import FLBox from '../../../layouts/box/FLBox';
 import { smallLightText } from '../../../themes/typography';
 
 export type BaseHeaderProps = {
