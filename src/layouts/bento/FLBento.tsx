@@ -35,13 +35,13 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
                     imgSrc="src/assets/images/foodloop.PNG"
                 />
                 <BentoItem
-                    sx={{ flex: 0.23 }}
+                    sx={{ flex: 0.23, flexDirection: 'row' }}
                     title="Pick-up"
                     description="Up to 50% off"
                     imgSrc="src/assets/images/pick-up.png"
                 />
                 <BentoItem
-                    sx={{ flex: 0.23 }}
+                    sx={{ flex: 0.23, flexDirection: 'row' }}
                     title="pandago"
                     description="Send parcels"
                     imgSrc="src/assets/images/pandago.png"
@@ -67,7 +67,7 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
                     imgSrc="src/assets/images/shops.png"
                 />
                 <BentoItem
-                    sx={{ flex: 0.23 }}
+                    sx={{ flex: 0.23, flexDirection: 'row' }}
                     title="Dine-in"
                     description="Up to 50% off Entire bill"
                     imgSrc="src/assets/images/dine-in.png"
