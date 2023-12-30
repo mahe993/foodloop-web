@@ -33,8 +33,8 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
                     title="Food loop"
                     description="New, experimental food playlist feature!"
                 />
-                <BentoItem sx={{ flex: 0.23 }} title="Pick-up" description="Up to 50% off" />
-                <BentoItem sx={{ flex: 0.23 }} title="pandago" description="Send parcels" />
+                <BentoItem sx={{ flex: 0.23, flexDirection: 'row' }} title="Pick-up" description="Up to 50% off" />
+                <BentoItem sx={{ flex: 0.23, flexDirection: 'row' }} title="pandago" description="Send parcels" />
             </VBentoTray>
             <VBentoTray
                 sx={{
@@ -45,7 +45,11 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
             >
                 <BentoItem sx={{ flex: 0.385 }} title="pandamart" description="Fresh groceries & more" />
                 <BentoItem sx={{ flex: 0.385 }} title="Shops" description="Giant, CS Fresh & more" />
-                <BentoItem sx={{ flex: 0.23 }} title="Dine-in" description="Up to 50% off Entire bill" />
+                <BentoItem
+                    sx={{ flex: 0.23, flexDirection: 'row' }}
+                    title="Dine-in"
+                    description="Up to 50% off Entire bill"
+                />
             </VBentoTray>
         </FLBox>
     );

@@ -38,7 +38,8 @@ export default function BentoItem({
                     alignSelf: 'flex-start',
                     alignItems: 'flex-start',
                     flexDirection: 'column',
-                    width: '100%',
+                    width: (sx as { flexDirection?: 'row' | 'column' })?.flexDirection === 'row' ? '50%' : '100%',
+                    overflow: 'wrap',
                 }}
             >
                 <FLBox
@@ -53,12 +54,12 @@ export default function BentoItem({
             <FLBox
                 sx={{
                     alignSelf: 'flex-end',
-                    flex: 1,
-                    width: '60%',
-                    height: '50%',
+                    width: (sx as { flexDirection?: 'row' | 'column' })?.flexDirection === 'row' ? '45%' : '80%',
+                    height: (sx as { flexDirection?: 'row' | 'column' })?.flexDirection === 'row' ? '100%' : '60%',
                     overflow: 'hidden',
                     position: 'relative',
                     justifyContent: 'flex-end',
+                    alignItems: 'flex-end',
                 }}
             >
                 <img
