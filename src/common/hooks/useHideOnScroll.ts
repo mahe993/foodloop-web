@@ -15,7 +15,7 @@ export default function useHideOnScroll(): UseHideOnScroll {
         const handleScroll = (): void => {
             const currScrollPos = window.scrollY;
 
-            if (currScrollPos > prevScrollPos) {
+            if (currScrollPos > prevScrollPos && currScrollPos > 50) {
                 // Scrolling down, hide the header
                 setIsHidden(true);
             } else {
