@@ -1,13 +1,13 @@
-import Bento from '../../layouts/bento/Bento';
+import FLBento from '../../layouts/bento/FLBento';
 import FLHeaderWithSearch from '../../layouts/headerWithSearch/FLHeaderWithSearch';
 import FLPage from '../base/FLPage';
 
 export default function LandingPage(): JSX.Element {
     return (
-        <FLPage sx={{ bgcolor: 'white', paddingBlockStart: '20svh' }}>
+        <FLPage sx={{ bgcolor: 'white' }}>
             {/* Search should maybe be tied to header */}
             <FLHeaderWithSearch />
-            <Bento sx={{ marginBlockEnd: 'auto' }} />
+            <FLBento sx={{ marginBlockEnd: 'auto', paddingBlockStart: '22svh' }} />
         </FLPage>
     );
 }
