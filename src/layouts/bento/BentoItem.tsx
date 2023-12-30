@@ -9,7 +9,12 @@ type BentoItemProps = {
     sx?: SxProps;
 };
 
-export default function BentoItem({ title, description, imgSrc, sx }: BentoItemProps): JSX.Element {
+export default function BentoItem({
+    title,
+    description,
+    imgSrc = 'https://source.unsplash.com/random',
+    sx,
+}: BentoItemProps): JSX.Element {
     const theme = useTheme();
     const isPhone = useMediaQuery(theme.breakpoints.down('tablet'));
 
@@ -48,12 +53,24 @@ export default function BentoItem({ title, description, imgSrc, sx }: BentoItemP
             <FLBox
                 sx={{
                     alignSelf: 'flex-end',
-                    border: 1,
                     flex: 1,
-                    width: '50%',
+                    width: '60%',
+                    height: '50%',
+                    overflow: 'hidden',
+                    position: 'relative',
+                    justifyContent: 'flex-end',
                 }}
             >
-                {imgSrc}
+                <img
+                    alt="bento-item"
+                    src={imgSrc}
+                    style={{
+                        display: 'block',
+                        width: '100%',
+                        objectFit: 'contain',
+                        position: 'absolute',
+                    }}
+                />
             </FLBox>
         </FLBox>
     );

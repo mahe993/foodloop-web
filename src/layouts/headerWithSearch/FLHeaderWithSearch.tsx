@@ -13,6 +13,7 @@ export default function FLHeaderWithSearch(): JSX.Element {
                 top: 0,
                 width: '100%',
                 maxWidth: theme.breakpoints.values.tablet,
+                zIndex: 1,
             }}
         >
             <FLHeader />
