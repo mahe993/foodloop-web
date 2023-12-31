@@ -1,6 +1,6 @@
 import { SxProps, useTheme } from '@mui/material';
 import FLBox from '../../../layouts/box/FLBox';
-import { smallLightText } from '../../../themes/typography';
+import { smallLightText, defaultText } from '../../../themes/typography';
 
 export type BaseHeaderProps = {
     addressLineOne: string;
@@ -50,6 +50,7 @@ export default function BaseHeader({
                         whiteSpace: 'nowrap',
                         textOverflow: 'ellipsis',
                         display: 'block',
+                        ...defaultText,
                     }}
                 >
                     {addressLineOne}

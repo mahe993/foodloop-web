@@ -1,6 +1,7 @@
 import { SxProps, useTheme, useMediaQuery } from '@mui/material';
 import FLBox from '../box/FLBox';
 import { defaultBoldText, smallLightText, smallBoldText, xSmallLightText } from '../../themes/typography';
+import FLImageBox from '../../components/image/FLImageBox';
 
 type BentoItemProps = {
     title: string;
@@ -9,12 +10,7 @@ type BentoItemProps = {
     sx?: SxProps;
 };
 
-export default function BentoItem({
-    title,
-    description,
-    imgSrc = 'https://source.unsplash.com/random',
-    sx,
-}: BentoItemProps): JSX.Element {
+export default function BentoItem({ title, description, imgSrc, sx }: BentoItemProps): JSX.Element {
     const theme = useTheme();
     const isPhone = useMediaQuery(theme.breakpoints.down('tablet'));
 
@@ -51,28 +47,19 @@ export default function BentoItem({
                 </FLBox>
                 <FLBox sx={{ ...(isPhone ? xSmallLightText : smallLightText) }}>{description}</FLBox>
             </FLBox>
-            <FLBox
-                sx={{
-                    alignSelf: 'flex-end',
-                    width: (sx as { flexDirection?: 'row' | 'column' })?.flexDirection === 'row' ? '45%' : '80%',
-                    height: (sx as { flexDirection?: 'row' | 'column' })?.flexDirection === 'row' ? '100%' : '60%',
-                    overflow: 'hidden',
-                    position: 'relative',
-                    justifyContent: 'flex-end',
-                    alignItems: 'flex-end',
-                }}
-            >
-                <img
-                    alt="bento-item"
-                    src={imgSrc}
-                    style={{
-                        display: 'block',
-                        height: '100%',
-                        objectFit: 'contain',
-                        position: 'absolute',
+            {Boolean(imgSrc) && (
+                <FLImageBox
+                    boxHeight={(sx as { flexDirection?: 'row' | 'column' })?.flexDirection === 'row' ? '100%' : '60%'}
+                    boxWidth={(sx as { flexDirection?: 'row' | 'column' })?.flexDirection === 'row' ? '45%' : '80%'}
+                    imgHeight="100%"
+                    imgSrc={imgSrc as string}
+                    sx={{
+                        alignSelf: 'flex-end',
+                        justifyContent: 'flex-end',
+                        alignItems: 'flex-end',
                     }}
                 />
-            </FLBox>
+            )}
         </FLBox>
     );
 }
