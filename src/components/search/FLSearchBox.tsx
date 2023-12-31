@@ -5,11 +5,10 @@ import Slide from '@mui/material/Slide';
 
 type FLSearchBoxProps = {
     open: boolean;
-    offsetY: number;
     children: ReactNode;
 };
 
-export default function FLSearchBox({ open, offsetY, children }: FLSearchBoxProps): JSX.Element {
+export default function FLSearchBox({ open, children }: FLSearchBoxProps): JSX.Element {
     const theme = useTheme();
 
     useEffect(() => {
@@ -29,7 +28,7 @@ export default function FLSearchBox({ open, offsetY, children }: FLSearchBoxProp
                     position: 'absolute',
                     bgcolor: 'white',
                     color: 'black',
-                    top: offsetY,
+                    top: 0,
                     width: '100%',
                     // remove maxWidth if using full desktop page
                     maxWidth: theme.breakpoints.values.tablet,
