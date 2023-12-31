@@ -18,7 +18,7 @@ module.exports = {
         'no-unused-vars': 'off', // Disable the base rule as we are using the TypeScript version
         'react/jsx-uses-react': 'off', // Disable React rules to avoid conflicts with React 17
         'react/react-in-jsx-scope': 'off', // Disable React rules to avoid conflicts with React 17
-        'no-console': ['warn', { allow: ['warn', 'error'] }], // Allow console.warn and console.error
+        'no-console': ['warn', { allow: ['log', 'error'] }], // Allow console.warn and console.error
         'no-alert': 'error', // Disallow the use of alert, confirm, and prompt
         'no-debugger': 'error', // Disallow the use of debugger
         'react/prefer-stateless-function': 'error',
