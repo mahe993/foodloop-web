@@ -17,14 +17,14 @@ export default function BentoItem({ title, description, imgSrc, sx }: BentoItemP
     return (
         <FLBox
             sx={{
-                borderRadius: '5px',
+                borderRadius: '10px',
                 maxWidth: '100%',
                 width: '100%',
                 backgroundColor: 'white',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                paddingBlock: '2%',
-                paddingInlineStart: '4%',
+                paddingBlock: '4%',
+                paddingInlineStart: '6%',
                 boxShadow: '0 0 4px rgba(0, 0, 0, 0.1)',
                 ...sx,
             }}

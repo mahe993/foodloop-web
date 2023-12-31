@@ -29,22 +29,22 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
                 }}
             >
                 <BentoItem
-                    sx={{ flex: 0.54 }}
-                    title="Food loop"
                     description="New, experimental food playlist feature!"
                     imgSrc="src/assets/images/foodloop.PNG"
+                    sx={{ flex: 0.54 }}
+                    title="Food loop"
                 />
                 <BentoItem
-                    sx={{ flex: 0.23, flexDirection: 'row' }}
-                    title="Pick-up"
                     description="Up to 50% off"
                     imgSrc="src/assets/images/pick-up.png"
+                    sx={{ flex: 0.23, flexDirection: 'row' }}
+                    title="Pick-up"
                 />
                 <BentoItem
-                    sx={{ flex: 0.23, flexDirection: 'row' }}
-                    title="pandago"
                     description="Send parcels"
                     imgSrc="src/assets/images/pandago.png"
+                    sx={{ flex: 0.23, flexDirection: 'row' }}
+                    title="pandago"
                 />
             </VBentoTray>
             <VBentoTray
@@ -55,22 +55,22 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
                 }}
             >
                 <BentoItem
-                    sx={{ flex: 0.385 }}
-                    title="pandamart"
                     description="Fresh groceries & more"
                     imgSrc="src/assets/images/pandamart.png"
+                    sx={{ flex: 0.385 }}
+                    title="pandamart"
                 />
                 <BentoItem
-                    sx={{ flex: 0.385 }}
-                    title="Shops"
                     description="Giant, CS Fresh & more"
                     imgSrc="src/assets/images/shops.png"
+                    sx={{ flex: 0.385 }}
+                    title="Shops"
                 />
                 <BentoItem
-                    sx={{ flex: 0.23, flexDirection: 'row' }}
-                    title="Dine-in"
                     description="Up to 50% off Entire bill"
                     imgSrc="src/assets/images/dine-in.png"
+                    sx={{ flex: 0.23, flexDirection: 'row' }}
+                    title="Dine-in"
                 />
             </VBentoTray>
         </FLBox>
