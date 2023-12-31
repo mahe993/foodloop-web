@@ -6,7 +6,10 @@ export type BaseHeaderProps = {
     addressLineOne: string;
     addressLineTwo: string;
     leftIcon: JSX.Element;
+    lHandleClick: Voidfunction;
     rightPrimaryIcon: JSX.Element;
+    rPHandleClick: VoidFunction;
+    rSHandleClick: VoidFunction;
     rightSecondaryIcon: JSX.Element;
     sxContainer?: SxProps;
 };
@@ -15,7 +18,10 @@ export default function BaseHeader({
     addressLineOne,
     addressLineTwo,
     leftIcon,
+    lHandleClick,
     rightPrimaryIcon,
+    rPHandleClick,
+    rSHandleClick,
     rightSecondaryIcon,
     sxContainer,
 }: BaseHeaderProps): JSX.Element {
@@ -33,7 +39,9 @@ export default function BaseHeader({
                 ...sxContainer,
             }}
         >
-            <FLBox sx={{ flex: 0.2, height: '100%', justifyContent: 'flex-start' }}>{leftIcon}</FLBox>
+            <FLBox onClick={lHandleClick} sx={{ flex: 0.2, height: '100%', justifyContent: 'flex-start' }}>
+                {leftIcon}
+            </FLBox>
             <FLBox
                 sx={{
                     flex: 1,
@@ -69,8 +77,8 @@ export default function BaseHeader({
                 </FLBox>
             </FLBox>
             <FLBox sx={{ flex: 0.4, height: 'inherit', gap: '10%', justifyContent: 'flex-end' }}>
-                <FLBox>{rightPrimaryIcon}</FLBox>
-                <FLBox>{rightSecondaryIcon}</FLBox>
+                <FLBox onClick={rPHandleClick}>{rightPrimaryIcon}</FLBox>
+                <FLBox onClick={rSHandleClick}>{rightSecondaryIcon}</FLBox>
             </FLBox>
         </FLBox>
     );
