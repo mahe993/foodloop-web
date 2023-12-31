@@ -1,12 +1,12 @@
 import { SxProps, useTheme } from '@mui/material';
-import FLBox from '../../../layouts/box/FLBox';
+import FLBox from '../../../components/box/FLBox';
 import { smallLightText, defaultText } from '../../../themes/typography';
 
 export type BaseHeaderProps = {
     addressLineOne: string;
     addressLineTwo: string;
     leftIcon: JSX.Element;
-    lHandleClick: Voidfunction;
+    lHandleClick: VoidFunction;
     rightPrimaryIcon: JSX.Element;
     rPHandleClick: VoidFunction;
     rSHandleClick: VoidFunction;

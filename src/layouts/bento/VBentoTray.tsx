@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import FLBox from '../box/FLBox';
+import FLBox from '../../components/box/FLBox';
 import { SxProps } from '@mui/material';
 
 type VBentoTrayProps = {

@@ -1,4 +1,4 @@
-import FLBox from '../../layouts/box/FLBox';
+import FLBox from '../../components/box/FLBox';
 import { SxProps } from '@mui/material';
 
 type FLImageBoxProps = {

@@ -1,5 +1,5 @@
 import { SxProps, useTheme, useMediaQuery } from '@mui/material';
-import FLBox from '../box/FLBox';
+import FLBox from '../../components/box/FLBox';
 import { defaultBoldText, smallLightText, smallBoldText, xSmallLightText } from '../../themes/typography';
 import FLImageBox from '../../components/image/FLImageBox';
 

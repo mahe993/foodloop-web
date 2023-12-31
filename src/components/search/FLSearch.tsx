@@ -3,7 +3,7 @@ import FLSearchBox from './FLSearchBox';
 import FLSearchContent from './FLSearchContent';
 import { useState } from 'react';
 import useHideOnScroll from '../../common/hooks/useHideOnScroll';
-import FLBox from '../../layouts/box/FLBox';
+import FLBox from '../../components/box/FLBox';
 
 export default function FLSearch(): JSX.Element {
     const [openSearch, setOpenSearch] = useState<boolean>(false);

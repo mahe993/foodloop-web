@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material';
 import FLHeader from '../../components/header/FLHeader';
 import FLSearch from '../../components/search/FLSearch';
-import FLBox from '../box/FLBox';
+import FLBox from '../../components/box/FLBox';
 
 export default function FLHeaderWithSearch(): JSX.Element {
     const theme = useTheme();

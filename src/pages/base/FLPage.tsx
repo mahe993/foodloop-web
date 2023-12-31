@@ -1,7 +1,7 @@
 import { SxProps } from '@mui/material';
 import { ReactNode } from 'react';
 import { useTheme } from '@mui/material/styles';
-import FLBox from '../../layouts/box/FLBox';
+import FLBox from '../../components/box/FLBox';
 
 type FLPageProps = {
     children: ReactNode;
@@ -15,7 +15,7 @@ function FLPage({ children, sx }: FLPageProps): JSX.Element {
         <FLBox
             sx={{
                 flexDirection: 'column',
-                // extra 1 so that scroll bar is always present
+                // >100 so that scroll bar is always present
                 // prevents horizontal shake
                 minHeight: '120svh',
                 // TODO: check if needed
