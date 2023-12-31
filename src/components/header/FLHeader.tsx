@@ -3,6 +3,7 @@ import { SxProps } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { defaultAction } from '../../common/utils/utils';
 
 export type FLHeaderProps = {
     addressLineOne?: string;
@@ -20,17 +21,11 @@ export default function FLHeader({
     addressLineOne = 'Afro Asia',
     addressLineTwo = '63 Robinson Rd, Singapore 068894',
     leftIcon = <MenuRoundedIcon />,
-    lHandleClick = (): void => {
-        console.log('Left Icon clicked');
-    },
+    lHandleClick = defaultAction('Left Icon clicked'),
     rightPrimaryIcon = <FavoriteBorderRoundedIcon />,
-    rPHandleClick = (): void => {
-        console.log('Right Primary Icon clicked');
-    },
+    rPHandleClick = defaultAction('Right Primary Icon clicked'),
     rightSecondaryIcon = <ShoppingCartOutlinedIcon />,
-    rSHandleClick = (): void => {
-        console.log('Right Secondary Icon clicked');
-    },
+    rSHandleClick = defaultAction('Right Secondary Icon clicked'),
     sx,
 }: FLHeaderProps): JSX.Element {
     return (
