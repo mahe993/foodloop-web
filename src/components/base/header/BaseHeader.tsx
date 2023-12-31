@@ -1,6 +1,6 @@
 import { SxProps, useTheme } from '@mui/material';
 import FLBox from '../../../components/box/FLBox';
-import { smallLightText, defaultText } from '../../../themes/typography';
+import { smallLightText, defaultBoldText } from '../../../themes/typography';
 
 export type BaseHeaderProps = {
     addressLineOne: string;
@@ -32,8 +32,8 @@ export default function BaseHeader({
             sx={{
                 width: '100%',
                 bgcolor: theme.palette.foodloop.main,
-                minHeight: '12svh',
-                height: '12svh',
+                minHeight: '10svh',
+                height: '10svh',
                 paddingInline: '2%',
                 gap: '2%',
                 ...sxContainer,
@@ -58,7 +58,7 @@ export default function BaseHeader({
                         whiteSpace: 'nowrap',
                         textOverflow: 'ellipsis',
                         display: 'block',
-                        ...defaultText,
+                        ...defaultBoldText,
                     }}
                 >
                     {addressLineOne}

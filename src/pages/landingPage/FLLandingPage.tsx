@@ -7,7 +7,7 @@ export default function LandingPage(): JSX.Element {
         <FLPage sx={{ bgcolor: 'white' }}>
             {/* Search should maybe be tied to header */}
             <FLHeaderWithSearch />
-            <FLBento sx={{ marginBlockEnd: 'auto', paddingBlockStart: '22svh' }} />
+            <FLBento sx={{ marginBlockEnd: 'auto', paddingBlockStart: '20svh' }} />
         </FLPage>
     );
 }
