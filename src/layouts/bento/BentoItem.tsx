@@ -2,20 +2,29 @@ import { SxProps, useTheme, useMediaQuery } from '@mui/material';
 import FLBox from '../../components/box/FLBox';
 import { defaultBoldText, smallLightText, smallBoldText, xSmallLightText } from '../../themes/typography';
 import FLImageBox from '../../components/image/FLImageBox';
+import { defaultAction } from '../../common/utils/utils';
 
 type BentoItemProps = {
     title: string;
     description: string;
     imgSrc?: string;
+    onClick?: VoidFunction;
     sx?: SxProps;
 };
 
-export default function BentoItem({ title, description, imgSrc, sx }: BentoItemProps): JSX.Element {
+export default function BentoItem({
+    title,
+    description,
+    imgSrc,
+    onClick = defaultAction('Bento Item clicked'),
+    sx,
+}: BentoItemProps): JSX.Element {
     const theme = useTheme();
     const isPhone = useMediaQuery(theme.breakpoints.down('tablet'));
 
     return (
         <FLBox
+            onClick={onClick}
             sx={{
                 borderRadius: '10px',
                 maxWidth: '100%',
