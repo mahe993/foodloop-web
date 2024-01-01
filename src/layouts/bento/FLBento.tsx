@@ -13,8 +13,8 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
             sx={{
                 backgroundColor: '#F2F2F2',
                 width: '100%',
-                minHeight: '68svh',
-                height: '68svh',
+                minHeight: '78svh',
+                height: '78svh',
                 padding: '2svh',
                 gap: '4%',
                 color: 'black',
