@@ -8,10 +8,17 @@ type FLContributorProfileCardProps = {
     name: string;
     role: string;
     ghURL: string;
+    profilePicURL?: string;
     sx?: SxProps;
 };
 
-export function FLContributorProfileCard({ name, role, ghURL, sx }: FLContributorProfileCardProps): JSX.Element {
+export function FLContributorProfileCard({
+    name,
+    role,
+    ghURL,
+    profilePicURL = 'src/assets/images/foodloop.png',
+    sx,
+}: FLContributorProfileCardProps): JSX.Element {
     const theme = useTheme();
     return (
         <FLBox
@@ -26,13 +33,7 @@ export function FLContributorProfileCard({ name, role, ghURL, sx }: FLContributo
                 ...sx,
             }}
         >
-            <FLImageBox
-                boxHeight="100%"
-                boxWidth="100%"
-                imgHeight="100%"
-                imgSrc="src/assets/images/profileNoBG.png"
-                sx={{ flex: 0.2 }}
-            />
+            <FLImageBox boxHeight="100%" boxWidth="100%" imgHeight="100%" imgSrc={profilePicURL} sx={{ flex: 0.2 }} />
             <FLBox sx={{ flexDirection: 'column', flex: 0.8, height: '100%', gap: '4%' }}>
                 <FLBox sx={{ ...smallText }}>{name}</FLBox>
                 <FLBox sx={{ ...smallText }}>{role}</FLBox>

@@ -19,6 +19,7 @@ export default function LandingPage(): JSX.Element {
                         ghURL={contributor.ghURL}
                         key={contributor.name}
                         name={contributor.name}
+                        profilePicURL={contributor?.profilePicURL}
                         role={contributor.role}
                     />
                 ))}
