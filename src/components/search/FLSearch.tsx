@@ -27,7 +27,7 @@ export default function FLSearch(): JSX.Element {
                         bgcolor: theme.palette.foodloop.main,
                         height: '8svh',
                         width: '100%',
-                        paddingInline: '2%',
+                        paddingInline: '4%',
                     }}
                 >
                     <FLButton

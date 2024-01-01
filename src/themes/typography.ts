@@ -10,6 +10,12 @@ export const defaultBoldText = {
     fontSize: '1rem',
 };
 
+export const smallText = {
+    fontFamily: 'sans-serif',
+    fontWeight: 400,
+    fontSize: '0.75rem',
+};
+
 export const smallLightText = {
     fontFamily: 'sans-serif',
     fontWeight: 300,

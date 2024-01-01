@@ -34,7 +34,7 @@ export default function BaseHeader({
                 bgcolor: theme.palette.foodloop.main,
                 minHeight: '10svh',
                 height: '10svh',
-                paddingInline: '2%',
+                paddingInline: '4%',
                 gap: '2%',
                 ...sxContainer,
             }}

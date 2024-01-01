@@ -17,10 +17,11 @@ function FLPage({ children, sx }: FLPageProps): JSX.Element {
                 flexDirection: 'column',
                 // >100 so that scroll bar is always present
                 // prevents horizontal shake
-                minHeight: '120svh',
+                minHeight: '101svh',
                 // TODO: check if needed
                 maxWidth: theme.breakpoints.values.tablet,
                 width: '100dvw',
+                paddingBlockEnd: '4svh',
                 ...sx,
             }}
         >
