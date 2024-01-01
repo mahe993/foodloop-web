@@ -1,6 +1,6 @@
 import { Box, Collapse, useTheme } from '@mui/material';
-import FLSearchBox from './FLSearchBox';
-import FLSearchContent from './FLSearchContent';
+import SearchBox from './SearchBox';
+import SearchContent from './SearchContent';
 import { useState } from 'react';
 import useHideOnScroll from '../../common/hooks/useHideOnScroll';
 import FLBox from '../../components/box/FLBox';
@@ -37,21 +37,19 @@ export default function FLSearch(): JSX.Element {
                             ...smallLightText,
                             color: 'grey',
                             width: '100%',
-                            gap: '2%',
-                            paddingInline: '6%',
                         }}
                     >
                         Search for shops & restaurants
                     </FLButton>
                 </FLBox>
             </Collapse>
-            <FLSearchBox open={openSearch}>
-                <FLSearchContent
+            <SearchBox open={openSearch}>
+                <SearchContent
                     closeSearch={() => {
                         setOpenSearch(false);
                     }}
                 />
-            </FLSearchBox>
+            </SearchBox>
         </Box>
     );
 }

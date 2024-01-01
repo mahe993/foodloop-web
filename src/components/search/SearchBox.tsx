@@ -3,12 +3,12 @@ import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Slide from '@mui/material/Slide';
 
-type FLSearchBoxProps = {
+type SearchBoxProps = {
     open: boolean;
     children: ReactNode;
 };
 
-export default function FLSearchBox({ open, children }: FLSearchBoxProps): JSX.Element {
+export default function SearchBox({ open, children }: SearchBoxProps): JSX.Element {
     const theme = useTheme();
 
     useEffect(() => {
@@ -29,12 +29,11 @@ export default function FLSearchBox({ open, children }: FLSearchBoxProps): JSX.E
                     bgcolor: 'white',
                     color: 'black',
                     top: 0,
+                    left: 0,
                     width: '100%',
                     // remove maxWidth if using full desktop page
                     maxWidth: theme.breakpoints.values.tablet,
                     minHeight: '100svh',
-                    paddingInline: '2%',
-                    paddingBlockStart: '2%',
                 }}
             >
                 {children}
