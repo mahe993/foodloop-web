@@ -1,6 +1,6 @@
 import { getContributors } from '../../common/utils/utils';
 import { FLContributorProfileCard } from '../../components/card/FLContributorProfileCard';
-import FLDataTray from '../../components/datatray/FLDataTray';
+import FLDataTray from '../../layouts/datatray/FLDataTray';
 import FLBento from '../../layouts/bento/FLBento';
 import FLHeaderWithSearch from '../../layouts/headerWithSearch/FLHeaderWithSearch';
 import FLPage from '../base/FLPage';

@@ -1,5 +1,5 @@
 import { SxProps } from '@mui/material';
-import FLBox from '../box/FLBox';
+import FLBox from '../../components/box/FLBox';
 import { defaultBoldText } from '../../themes/typography';
 import { ReactNode } from 'react';
 
