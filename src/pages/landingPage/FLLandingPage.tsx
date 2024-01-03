@@ -17,6 +17,7 @@ export default function LandingPage(): JSX.Element {
                 {CONTRIBUTORS.map(contributor => (
                     <FLContributorProfileCard
                         ghURL={contributor.ghURL}
+                        linkedinURL={contributor.linkedinURL}
                         key={contributor.name}
                         name={contributor.name}
                         profilePicURL={contributor?.profilePicURL}
