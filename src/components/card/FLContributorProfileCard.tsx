@@ -3,11 +3,13 @@ import FLBox from '../box/FLBox';
 import FLImageBox from '../image/FLImageBox';
 import { smallText } from '../../themes/typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 type FLContributorProfileCardProps = {
     name: string;
     role: string;
     ghURL: string;
+    linkedinURL: string;
     profilePicURL?: string;
     sx?: SxProps;
 };
@@ -16,6 +18,7 @@ export function FLContributorProfileCard({
     name,
     role,
     ghURL,
+    linkedinURL,
     profilePicURL = 'src/assets/images/foodloop.png',
     sx,
 }: FLContributorProfileCardProps): JSX.Element {
@@ -45,10 +48,23 @@ export function FLContributorProfileCard({
                             color: theme.palette.foodloop.main,
                             textDecoration: 'none',
                             cursor: 'pointer',
+                            marginRight: '10px',
                         }}
                         target="_blank"
                     >
                         <GitHubIcon />
+                    </a>
+                    <a
+                        href={linkedinURL}
+                        rel="noopener noreferrer"
+                        style={{
+                            color: theme.palette.foodloop.main,
+                            textDecoration: 'none',
+                            cursor: 'pointer',
+                        }}
+                        target="_blank"
+                    >
+                        <LinkedInIcon />
                     </a>
                 </FLBox>
             </FLBox>
