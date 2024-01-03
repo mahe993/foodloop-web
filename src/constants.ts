@@ -9,6 +9,7 @@ export const CONTRIBUTORS = [
         name: 'Park Chae Seong',
         role: 'Software Engineer',
         ghURL: 'https://github.com/chae-seong/',
+        profilePicURL: 'src/assets/images/chaeseong.png',
     },
     {
         name: 'Foo Chi Hen',
