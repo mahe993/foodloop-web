@@ -40,7 +40,7 @@ export function FLContributorProfileCard({
             <FLBox sx={{ flexDirection: 'column', flex: 0.8, height: '100%', gap: '4%' }}>
                 <FLBox sx={{ ...smallText }}>{name}</FLBox>
                 <FLBox sx={{ ...smallText }}>{role}</FLBox>
-                <FLBox sx={{ ...smallText }}>
+                <FLBox sx={{ ...smallText, gap: '4%' }}>
                     <a
                         href={ghURL}
                         rel="noopener noreferrer"
@@ -48,7 +48,6 @@ export function FLContributorProfileCard({
                             color: theme.palette.foodloop.main,
                             textDecoration: 'none',
                             cursor: 'pointer',
-                            marginRight: '10px',
                         }}
                         target="_blank"
                     >
