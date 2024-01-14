@@ -2,7 +2,7 @@ import { SxProps, useTheme, useMediaQuery } from '@mui/material';
 import FLBox from '../../components/box/FLBox';
 import { defaultBoldText, smallLightText, smallBoldText, xSmallLightText } from '../../themes/typography';
 import FLImageBox from '../../components/image/FLImageBox';
-import { defaultAction } from '../../common/utils/utils';
+import { useSnackbar } from '../../contexts/SnackbarContext';
 
 type BentoItemProps = {
     title: string;
@@ -12,19 +12,21 @@ type BentoItemProps = {
     sx?: SxProps;
 };
 
-export default function BentoItem({
-    title,
-    description,
-    imgSrc,
-    onClick = defaultAction('Bento Item clicked'),
-    sx,
-}: BentoItemProps): JSX.Element {
+export default function BentoItem({ title, description, imgSrc, onClick, sx }: BentoItemProps): JSX.Element {
     const theme = useTheme();
     const isPhone = useMediaQuery(theme.breakpoints.down('tablet'));
+    const snackbar = useSnackbar();
+
+    let handleClick = onClick;
+    if (!onClick) {
+        handleClick = (): void => {
+            if (snackbar.setOpen) snackbar.setOpen(true);
+        };
+    }
 
     return (
         <FLBox
-            onClick={onClick}
+            onClick={handleClick}
             sx={{
                 borderRadius: '10px',
                 maxWidth: '100%',
@@ -35,7 +37,7 @@ export default function BentoItem({
                 paddingBlock: '4%',
                 paddingInlineStart: '6%',
                 boxShadow: '0 0 4px rgba(0, 0, 0, 0.1)',
-                cursor: title === 'Food loop' && 'pointer',
+                cursor: title === 'Food loop' ? 'pointer' : undefined,
                 ...sx,
             }}
         >
