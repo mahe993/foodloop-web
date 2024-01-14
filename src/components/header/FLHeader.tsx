@@ -3,7 +3,7 @@ import { SxProps } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { defaultAction } from '../../common/utils/utils';
+import { useErrorSnackbar } from '../../contexts/ErrorSnackbarContext';
 
 export type FLHeaderProps = {
     addressLineOne?: string;
@@ -21,21 +21,28 @@ export default function FLHeader({
     addressLineOne = 'Afro Asia',
     addressLineTwo = '63 Robinson Rd, Singapore 068894',
     leftIcon = <MenuRoundedIcon />,
-    lHandleClick = defaultAction('Left Icon clicked'),
+    lHandleClick,
     rightPrimaryIcon = <FavoriteBorderRoundedIcon />,
-    rPHandleClick = defaultAction('Right Primary Icon clicked'),
+    rPHandleClick,
     rightSecondaryIcon = <ShoppingCartOutlinedIcon />,
-    rSHandleClick = defaultAction('Right Secondary Icon clicked'),
+    rSHandleClick,
     sx,
 }: FLHeaderProps): JSX.Element {
+    const snackbar = useErrorSnackbar();
+
+    const defaultClick = (): void => {
+        if (snackbar.setOpen) snackbar.setOpen(true);
+    };
+
     return (
         <BaseHeader
             addressLineOne={addressLineOne}
             addressLineTwo={addressLineTwo}
-            lHandleClick={lHandleClick}
+            addressHandleClick={defaultClick}
+            lHandleClick={lHandleClick ? lHandleClick : defaultClick}
             leftIcon={leftIcon}
-            rPHandleClick={rPHandleClick}
-            rSHandleClick={rSHandleClick}
+            rPHandleClick={rPHandleClick ? rPHandleClick : defaultClick}
+            rSHandleClick={rSHandleClick ? rSHandleClick : defaultClick}
             rightPrimaryIcon={rightPrimaryIcon}
             rightSecondaryIcon={rightSecondaryIcon}
             sxContainer={sx}

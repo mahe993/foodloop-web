@@ -5,6 +5,7 @@ import { smallLightText, defaultBoldText } from '../../../themes/typography';
 export type BaseHeaderProps = {
     addressLineOne: string;
     addressLineTwo: string;
+    addressHandleClick: VoidFunction;
     leftIcon: JSX.Element;
     lHandleClick: VoidFunction;
     rightPrimaryIcon: JSX.Element;
@@ -17,6 +18,7 @@ export type BaseHeaderProps = {
 export default function BaseHeader({
     addressLineOne,
     addressLineTwo,
+    addressHandleClick,
     leftIcon,
     lHandleClick,
     rightPrimaryIcon,
@@ -44,6 +46,7 @@ export default function BaseHeader({
                 {leftIcon}
             </FLBox>
             <FLBox
+                onClick={addressHandleClick}
                 sx={{
                     flex: 0.7,
                     flexDirection: 'column',
