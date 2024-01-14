@@ -2,12 +2,15 @@ import { SxProps } from '@mui/material';
 import FLBox from '../../components/box/FLBox';
 import VBentoTray from './VBentoTray';
 import BentoItem from './BentoItem';
+import { useNavigate } from 'react-router-dom';
 
 type BentoProps = {
     sx?: SxProps;
 };
 
 export default function FLBento({ sx }: BentoProps): JSX.Element {
+    const navigate = useNavigate();
+
     return (
         <FLBox
             sx={{
@@ -33,6 +36,9 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
                     imgSrc="src/assets/images/foodloop.png"
                     sx={{ flex: 0.54 }}
                     title="Food loop"
+                    onClick={() => {
+                        navigate('/foodloop');
+                    }}
                 />
                 <BentoItem
                     description="Up to 50% off"

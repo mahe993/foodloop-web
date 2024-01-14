@@ -35,6 +35,7 @@ export default function BentoItem({
                 paddingBlock: '4%',
                 paddingInlineStart: '6%',
                 boxShadow: '0 0 4px rgba(0, 0, 0, 0.1)',
+                cursor: title === 'Food loop' && 'pointer',
                 ...sx,
             }}
         >
