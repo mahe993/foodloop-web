@@ -30,7 +30,7 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
             >
                 <BentoItem
                     description="New, experimental food playlist feature!"
-                    imgSrc="src/assets/images/foodloop.PNG"
+                    imgSrc="src/assets/images/foodloop.png"
                     sx={{ flex: 0.54 }}
                     title="Food loop"
                 />
