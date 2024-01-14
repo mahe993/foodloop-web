@@ -10,7 +10,6 @@ type BentoItemProps = {
     imgSrc?: string;
     onClick?: VoidFunction;
     sx?: SxProps;
-    onClick?: VoidFunction;
 };
 
 export default function BentoItem({
