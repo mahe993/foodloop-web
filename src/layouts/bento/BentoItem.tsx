@@ -8,6 +8,7 @@ type BentoItemProps = {
     title: string;
     description: string;
     imgSrc?: string;
+    onClick?: VoidFunction;
     sx?: SxProps;
     onClick?: VoidFunction;
 };
@@ -16,8 +17,8 @@ export default function BentoItem({
     title,
     description,
     imgSrc,
+    onClick = defaultAction('Bento Item clicked'),
     sx,
-    onClick = defaultAction('bento item clicked'),
 }: BentoItemProps): JSX.Element {
     const theme = useTheme();
     const isPhone = useMediaQuery(theme.breakpoints.down('tablet'));
@@ -26,14 +27,14 @@ export default function BentoItem({
         <FLBox
             onClick={onClick}
             sx={{
-                borderRadius: '5px',
+                borderRadius: '10px',
                 maxWidth: '100%',
                 width: '100%',
                 backgroundColor: 'white',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                paddingBlock: '2%',
-                paddingInlineStart: '4%',
+                paddingBlock: '4%',
+                paddingInlineStart: '6%',
                 boxShadow: '0 0 4px rgba(0, 0, 0, 0.1)',
                 ...sx,
             }}

@@ -34,17 +34,18 @@ export default function BaseHeader({
                 bgcolor: theme.palette.foodloop.main,
                 minHeight: '10svh',
                 height: '10svh',
-                paddingInline: '2%',
+                paddingInline: '4%',
                 gap: '2%',
+                justifyContent: 'space-between',
                 ...sxContainer,
             }}
         >
-            <FLBox onClick={lHandleClick} sx={{ flex: 0.2, height: '100%', justifyContent: 'flex-start' }}>
+            <FLBox onClick={lHandleClick} sx={{ flex: 0.1, height: '100%', justifyContent: 'flex-start' }}>
                 {leftIcon}
             </FLBox>
             <FLBox
                 sx={{
-                    flex: 1,
+                    flex: 0.7,
                     flexDirection: 'column',
                     height: '100%',
                     width: '100%',
@@ -76,7 +77,7 @@ export default function BaseHeader({
                     {addressLineTwo}
                 </FLBox>
             </FLBox>
-            <FLBox sx={{ flex: 0.4, height: 'inherit', gap: '10%', justifyContent: 'flex-end' }}>
+            <FLBox sx={{ flex: 0.2, height: 'inherit', gap: '10%', justifyContent: 'flex-end' }}>
                 <FLBox onClick={rPHandleClick}>{rightPrimaryIcon}</FLBox>
                 <FLBox onClick={rSHandleClick}>{rightSecondaryIcon}</FLBox>
             </FLBox>

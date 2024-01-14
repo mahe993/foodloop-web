@@ -15,6 +15,8 @@ export default function FLButton({ pressState = false, children, sx, ...buttonPr
                         backgroundColor: 'lightgrey',
                         transform: 'scale(0.98)',
                     },
+                    gap: '2%',
+                    paddingInline: '6%',
                 }),
                 ...sx,
             }}
