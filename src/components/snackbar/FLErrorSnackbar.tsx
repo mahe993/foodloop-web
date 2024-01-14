@@ -1,8 +1,8 @@
 import BaseSnackbar from '../base/snackbar/BaseSnackbar';
-import { useSnackbar } from '../../contexts/SnackbarContext';
+import { useErrorSnackbar } from '../../contexts/ErrorSnackbarContext';
 
 export default function FLErrorSnackBar(): JSX.Element {
-    const snackbar = useSnackbar();
+    const snackbar = useErrorSnackbar();
 
     return (
         <BaseSnackbar

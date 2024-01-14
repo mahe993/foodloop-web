@@ -4,16 +4,16 @@ import FLTheme from './themes/FLTheme';
 import { RouterProvider } from 'react-router-dom';
 import router from './router/router';
 import FLErrorSnackBar from './components/snackbar/FLErrorSnackbar';
-import SnackbarProvider from './contexts/SnackbarContext';
+import ErrorSnackbarProvider from './contexts/ErrorSnackbarContext';
 
 export default function App(): JSX.Element {
     return (
         <ThemeProvider theme={FLTheme}>
-            <SnackbarProvider>
+            <ErrorSnackbarProvider>
                 <CssBaseline enableColorScheme />
                 <RouterProvider router={router} />
                 <FLErrorSnackBar />
-            </SnackbarProvider>
+            </ErrorSnackbarProvider>
         </ThemeProvider>
     );
 }

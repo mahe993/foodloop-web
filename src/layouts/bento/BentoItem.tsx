@@ -2,7 +2,7 @@ import { SxProps, useTheme, useMediaQuery } from '@mui/material';
 import FLBox from '../../components/box/FLBox';
 import { defaultBoldText, smallLightText, smallBoldText, xSmallLightText } from '../../themes/typography';
 import FLImageBox from '../../components/image/FLImageBox';
-import { useSnackbar } from '../../contexts/SnackbarContext';
+import { useErrorSnackbar } from '../../contexts/ErrorSnackbarContext';
 
 type BentoItemProps = {
     title: string;
@@ -15,7 +15,7 @@ type BentoItemProps = {
 export default function BentoItem({ title, description, imgSrc, onClick, sx }: BentoItemProps): JSX.Element {
     const theme = useTheme();
     const isPhone = useMediaQuery(theme.breakpoints.down('tablet'));
-    const snackbar = useSnackbar();
+    const snackbar = useErrorSnackbar();
 
     let handleClick = onClick;
     if (!onClick) {
