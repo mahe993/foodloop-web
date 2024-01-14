@@ -32,7 +32,7 @@ module.exports = {
         'react/no-unstable-nested-components': ['error', { allowAsProps: true }],
         'react/jsx-fragments': 'error',
         'react/destructuring-assignment': ['error', 'always', { destructureInSignature: 'always' }],
-        'react/jsx-no-leaked-render': ['error', { validStrategies: ['coerce'] }],
+        'react/jsx-no-leaked-render': ['error', { validStrategies: ['coerce', 'ternary'] }],
         'react/jsx-max-depth': ['error', { max: 5 }],
         'react/function-component-definition': ['error', { 'function-declaration': 'unnamedComponents' }],
         'react/jsx-key': [
@@ -48,7 +48,6 @@ module.exports = {
         'react/no-typos': 'warn',
         'react/display-name': 'warn',
         'react/self-closing-comp': 'warn',
-        'react/jsx-sort-props': 'warn',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-one-expression-per-line': 'off',
         'react/prop-types': 'off',
