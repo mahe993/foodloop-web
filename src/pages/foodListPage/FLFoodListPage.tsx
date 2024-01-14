@@ -1,3 +1,5 @@
+import FLBox from '../../components/box/FLBox';
+
 export default function FLFoodListPage(): JSX.Element {
-    return <div>FLFoodListPage</div>;
+    return <FLBox>FLFoodListPage</FLBox>;
 }
