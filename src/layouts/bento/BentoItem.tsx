@@ -79,7 +79,7 @@ export default function BentoItem({ title, description, imgSrc, onClick, sx }: B
                         position: 'absolute',
                         alignSelf: 'flex-end',
                         transform: 'translate(20%, -20%) rotate(45deg)',
-                        backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                        backgroundColor: theme.palette.foodloop.main,
                         borderRadius: '25px',
                         paddingInline: '8px',
                         animation: `${glowFlicker} 1s infinite`,
@@ -95,15 +95,15 @@ export default function BentoItem({ title, description, imgSrc, onClick, sx }: B
 
 const glowFlicker = keyframes`
   0% {
-    text-shadow: 0 0 5px gold;
-    color: gold;
+    text-shadow: 0 0 5px white;
+    color: white;
   }
   50% {
-    text-shadow: 0 0 20px gold;
+    text-shadow: 0 0 20px white;
     color: #D70F64;
   }
   100% {
-    text-shadow: 0 0 5px gold;
-    color: gold;
+    text-shadow: 0 0 5px white;
+    color: white;
   }
 `;
