@@ -1,7 +1,7 @@
 import { ReactNode, useEffect } from 'react';
 import FLBox from '../box/FLBox';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
-import { useTheme } from '@mui/material';
+import { useTheme, SxProps } from '@mui/material';
 import FLPage from '../../pages/base/FLPage';
 import FLInput from '../input/FLInput';
 import useFLInput from '../input/useFLInput';
@@ -9,9 +9,16 @@ import useDebouncer from '../../common/hooks/useDebouncer';
 
 type SearchContentProps = {
     closeSearch: VoidFunction;
+    inputPlaceholder?: string;
+    sx?: SxProps;
     children?: ReactNode;
 };
-export default function SearchContent({ closeSearch, children }: SearchContentProps): JSX.Element {
+export default function SearchContent({
+    closeSearch,
+    inputPlaceholder,
+    sx,
+    children,
+}: SearchContentProps): JSX.Element {
     const { value: searchValue, handleChange } = useFLInput();
     const debouncedSearchValue = useDebouncer(searchValue, 1000);
     const theme = useTheme();
@@ -26,6 +33,7 @@ export default function SearchContent({ closeSearch, children }: SearchContentPr
             sx={{
                 justifyContent: 'flex-start',
                 marginInlineEnd: 'auto',
+                ...sx,
             }}
         >
             <FLBox
@@ -46,7 +54,7 @@ export default function SearchContent({ closeSearch, children }: SearchContentPr
                         autoFocus
                         handleChange={handleChange}
                         inputValue={searchValue}
-                        placeholder="Search for shops & restaurants"
+                        placeholder={inputPlaceholder ?? 'Search for shops & restaurants'}
                         type="text"
                     />
                 </FLBox>

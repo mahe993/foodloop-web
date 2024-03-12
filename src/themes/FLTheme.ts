@@ -17,6 +17,10 @@ const FLTheme = createTheme({
             dark: alpha('#D70F64', 0.9),
             contrastText: getContrastRatio('#D70F64', '#fff') > 4.5 ? '#fff' : '#111',
         },
+        foodlist: {
+            main: alpha('#191414', 1),
+            light: alpha('#352b2b', 1),
+        },
     },
 });
 
@@ -37,9 +41,11 @@ declare module '@mui/material/styles' {
 
     interface Palette {
         foodloop: Palette['primary'];
+        foodlist: Palette['primary'];
     }
 
     interface PaletteOptions {
         foodloop?: PaletteOptions['primary'];
+        foodlist?: PaletteOptions['primary'];
     }
 }
