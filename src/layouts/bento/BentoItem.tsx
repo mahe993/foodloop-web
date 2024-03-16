@@ -12,7 +12,6 @@ type BentoItemProps = {
     onClick?: VoidFunction;
     sx?: SxProps;
 };
-// testing
 
 export default function BentoItem({ title, description, imgSrc, onClick, sx }: BentoItemProps): JSX.Element {
     const theme = useTheme();
