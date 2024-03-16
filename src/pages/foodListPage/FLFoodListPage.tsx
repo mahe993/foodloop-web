@@ -5,6 +5,7 @@ import FLDataTray from '../../layouts/datatray/FLDataTray';
 import FLHeaderWithSearch from '../../layouts/headerWithSearch/FLHeaderWithSearch';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import { useNavigate } from 'react-router-dom';
+import PandaIcon from '../../assets/svgs/PandaIcon';
 
 export default function FLFoodListPage(): JSX.Element {
     const theme = useTheme();
@@ -89,6 +90,7 @@ export default function FLFoodListPage(): JSX.Element {
                             }}
                         >
                             Food List 1
+                            <PandaIcon />
                         </FLBox>
                         <FLBox
                             sx={{
