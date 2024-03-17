@@ -50,7 +50,7 @@ export default function FLFoodListIndex(): JSX.Element {
                             {Boolean(playlists.length) &&
                                 playlists.map((playlist: FoodPlaylist) => (
                                     <FLAlbumCover
-                                        key={playlist.id}
+                                        key={playlist.id + 10}
                                         id={playlist.id}
                                         title={playlist.title}
                                         description={`Every ${playlist.recurringDay}, at ${playlist.recurringTime}`}
@@ -60,7 +60,7 @@ export default function FLFoodListIndex(): JSX.Element {
                             {Boolean(playlists.length) &&
                                 playlists.map((playlist: FoodPlaylist) => (
                                     <FLAlbumCover
-                                        key={playlist.id}
+                                        key={playlist.id + 20}
                                         id={playlist.id}
                                         title={playlist.title}
                                         description={`Every ${playlist.recurringDay}, at ${playlist.recurringTime}`}
