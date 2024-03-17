@@ -6,18 +6,20 @@ import { useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 type FLAlbumCoverProps = {
+    id: number;
     title?: string;
     description?: string;
+    imgURL?: string;
 };
 
-export default function FLAlbumCover({ title, description }: FLAlbumCoverProps): JSX.Element {
+export default function FLAlbumCover({ id, title, description, imgURL = '' }: FLAlbumCoverProps): JSX.Element {
     const theme = useTheme();
     const navigate = useNavigate();
 
     return (
         <FLBox
             onClick={() => {
-                navigate('/foodloop/1');
+                navigate(`/foodloop/${id}`);
             }}
             sx={{
                 paddingBlock: '20%',
@@ -33,7 +35,7 @@ export default function FLAlbumCover({ title, description }: FLAlbumCoverProps):
                 boxWidth="100%"
                 boxHeight="80%"
                 imgHeight="100%"
-                imgSrc="image-src-value"
+                imgSrc={imgURL}
                 fallback="src/assets/images/albumFallback2.png"
                 sx={{
                     position: 'absolute',
@@ -78,7 +80,7 @@ export default function FLAlbumCover({ title, description }: FLAlbumCoverProps):
             <FLBox
                 sx={{
                     position: 'absolute',
-                    top: '50%',
+                    top: '45%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
                     textAlign: 'center',

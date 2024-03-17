@@ -1,9 +1,10 @@
 type PandaIconProps = {
     opacity?: number;
     width?: string;
+    circular?: boolean;
 };
 
-export default function PandaIcon({ opacity, width = '28' }: PandaIconProps): JSX.Element {
+export default function PandaIcon({ opacity, width = '28', circular = false }: PandaIconProps): JSX.Element {
     return (
         <svg
             fill="none"
@@ -11,10 +12,9 @@ export default function PandaIcon({ opacity, width = '28' }: PandaIconProps): JS
             viewBox="0 0 40 40"
             width={width}
             height={width}
-            data-testid="brand-icon-icon"
-            aria-hidden="true"
             focusable="false"
             opacity={opacity}
+            style={{ borderRadius: circular ? '50%' : 0 }}
         >
             <path
                 d="M35 0H5C2.24 0 0 2.24 0 5v30c0 2.76 2.24 5 5 5h30c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5Z"
