@@ -1,4 +1,4 @@
-import { Contributer, Food, Foodlist } from './common/hooks/stateHooks/types';
+import { Contributer, Food, Foodlist, PlayState } from './common/hooks/stateHooks/types';
 
 export const CONTRIBUTORS: Contributer[] = [
     {
@@ -30,12 +30,23 @@ export const whiteList = new Set([997, 998, 999]);
 
 export const MOCK_FOODLISTS: Foodlist[] = [
     {
+        id: 999,
+        userID: 999, // FK
+        title: 'title',
+        recurringDay: '<day>',
+        recurringTime: '<time>',
+        currentFoodIdx: 0,
+        status: PlayState.PAUSE,
+        imgURL: '',
+    },
+    {
         id: 1,
         userID: 999, // FK
         title: 'burgers',
         recurringDay: 'monday',
         recurringTime: '19:00',
         currentFoodIdx: 3,
+        status: PlayState.PLAY,
         imgURL: 'src/assets/images/burgers.png',
     },
     {
@@ -45,6 +56,7 @@ export const MOCK_FOODLISTS: Foodlist[] = [
         recurringDay: 'friday',
         recurringTime: '12:30',
         currentFoodIdx: 0,
+        status: PlayState.PAUSE,
         imgURL: 'src/assets/images/pasta.png',
     },
 ];

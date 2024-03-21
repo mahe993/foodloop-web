@@ -25,7 +25,7 @@ export default function useGetAllPlaylists({ userID }: useGetAllPlaylistsProps):
             if (whiteList.has(id)) {
                 data = MOCK_FOODLISTS;
             }
-            await waitTime(2000); // fake load time
+            await waitTime(2); // fake load time
             setPlaylists(data);
         } catch (e) {
             console.log(e);
@@ -38,7 +38,7 @@ export default function useGetAllPlaylists({ userID }: useGetAllPlaylistsProps):
         if (loading) {
             getAllPlaylists(userID);
         }
-    }, [loading]);
+    }, [loading, userID]);
 
     return {
         playlists: playlists,

@@ -5,6 +5,7 @@ export type Foodlist = {
     recurringDay: string;
     recurringTime: string;
     currentFoodIdx: number;
+    status: PlayState;
     imgURL?: string;
 };
 

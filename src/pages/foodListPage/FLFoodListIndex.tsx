@@ -5,10 +5,15 @@ import { Foodlist } from '../../common/hooks/stateHooks/types';
 import useGetAllPlaylists from '../../common/hooks/stateHooks/useGetAllPlaylists';
 import FLPauPauLoader from '../../components/loader/FLPauPauLoader';
 import { useUserContext } from '../../contexts/UserContext';
+import { useEffect } from 'react';
 
 export default function FLFoodListIndex(): JSX.Element {
     const user = useUserContext();
-    const { playlists, isLoading } = useGetAllPlaylists({ userID: user?.id });
+    const { playlists, isLoading, refresh } = useGetAllPlaylists({ userID: user?.id });
+
+    useEffect(() => {
+        refresh();
+    }, []);
 
     return (
         <FLBox
@@ -38,48 +43,16 @@ export default function FLFoodListIndex(): JSX.Element {
                     {isLoading ? (
                         <FLPauPauLoader sx={{ height: '60svh' }} />
                     ) : (
-                        <>
+                        Boolean(playlists.length) &&
+                        playlists.map((playlist: Foodlist) => (
                             <FLAlbumCover
-                                key={999}
-                                id={999}
-                                userID={999}
-                                title="Title"
-                                description="Every <day>, at <time>"
+                                key={playlist.id}
+                                id={playlist.id}
+                                title={playlist.title}
+                                description={`Every ${playlist.recurringDay}, at ${playlist.recurringTime}`}
+                                imgURL={playlist.imgURL}
                             />
-                            {Boolean(playlists.length) &&
-                                playlists.map((playlist: Foodlist) => (
-                                    <FLAlbumCover
-                                        key={playlist.id}
-                                        id={playlist.id}
-                                        userID={playlist.userID}
-                                        title={playlist.title}
-                                        description={`Every ${playlist.recurringDay}, at ${playlist.recurringTime}`}
-                                        imgURL={playlist.imgURL}
-                                    />
-                                ))}
-                            {Boolean(playlists.length) &&
-                                playlists.map((playlist: Foodlist) => (
-                                    <FLAlbumCover
-                                        key={playlist.id + 10}
-                                        id={playlist.id}
-                                        userID={playlist.userID}
-                                        title={playlist.title}
-                                        description={`Every ${playlist.recurringDay}, at ${playlist.recurringTime}`}
-                                        imgURL={playlist.imgURL}
-                                    />
-                                ))}
-                            {Boolean(playlists.length) &&
-                                playlists.map((playlist: Foodlist) => (
-                                    <FLAlbumCover
-                                        key={playlist.id + 20}
-                                        id={playlist.id}
-                                        userID={playlist.userID}
-                                        title={playlist.title}
-                                        description={`Every ${playlist.recurringDay}, at ${playlist.recurringTime}`}
-                                        imgURL={playlist.imgURL}
-                                    />
-                                ))}
-                        </>
+                        ))
                     )}
                 </FLBox>
             </FLDataTray>

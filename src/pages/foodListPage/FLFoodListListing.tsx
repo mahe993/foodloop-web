@@ -1,7 +1,8 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+/* eslint-disable indent */
+import { useNavigate, useParams } from 'react-router-dom';
 import FLBox from '../../components/box/FLBox';
 import { smallLightText, albumTitle } from '../../themes/typography';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { whiteList } from '../../constants';
 import { useUserContext } from '../../contexts/UserContext';
 import { PlayState } from '../../common/hooks/stateHooks/types';
@@ -10,29 +11,34 @@ import FLFoodlistItem from '../../components/card/FLFoodlistItem';
 import useGetAllFood from '../../common/hooks/stateHooks/useGetAllFood';
 import FLPauPauLoader from '../../components/loader/FLPauPauLoader';
 import useGetPlaylistStatus from '../../common/hooks/stateHooks/useGetPlaylistStatus';
+import { getNearestTime } from '../../common/utils/utils';
 
 export default function FLFoodListListing(): JSX.Element {
-    const [playState, setPlayState] = useState<PlayState>(PlayState.PLAY);
     const { id } = useParams();
     const user = useUserContext();
-    const { state = {} } = useLocation();
     const { foods, isLoading } = useGetAllFood({ userID: user.id, foodlistID: Number(id) });
-    const { currIdx, setCurrIdx } = useGetPlaylistStatus({ id: Number(id) });
+
+    const {
+        foodlist: { recurringDay, recurringTime, status: listStatus, currentFoodIdx: currIdx, userID, title },
+        setCurrIdx,
+        setListStatus,
+        isLoading: listLoading,
+    } = useGetPlaylistStatus({
+        id: Number(id),
+    });
+    const description = `Every ${recurringDay}, at ${recurringTime}`;
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (
-            !whiteList.has(state?.userID) &&
-            (!state?.title || !state?.description || !state?.userID || state?.userID !== user?.id)
-        ) {
+        if (!whiteList.has(userID) && (!title || !userID || userID !== user?.id)) {
             navigate('/invalid');
         }
     }, []);
 
     const handleClick = (): void => {
-        setPlayState(playState === PlayState.PLAY ? PlayState.PAUSE : PlayState.PLAY);
-        if (playState === PlayState.PLAY && currIdx === 0) {
+        setListStatus(listStatus === PlayState.PLAY ? PlayState.PAUSE : PlayState.PLAY);
+        if (listStatus === PlayState.PAUSE && currIdx === 0) {
             // post request to update currIdx
             setCurrIdx(1);
         }
@@ -69,7 +75,7 @@ export default function FLFoodListListing(): JSX.Element {
                             textTransform: 'uppercase',
                         }}
                     >
-                        {state?.title}
+                        {title}
                     </FLBox>
                     <FLBox
                         sx={{
@@ -79,11 +85,11 @@ export default function FLFoodListListing(): JSX.Element {
                             color: 'grey.600',
                         }}
                     >
-                        {state?.description}
+                        {description}
                     </FLBox>
                 </FLBox>
 
-                <FLPlayButton state={playState} handleClick={handleClick} />
+                {!listLoading && !isLoading && <FLPlayButton state={listStatus} handleClick={handleClick} />}
             </FLBox>
 
             <FLBox
@@ -94,16 +100,24 @@ export default function FLFoodListListing(): JSX.Element {
                     justifyContent: 'flex-start',
                 }}
             >
-                {isLoading ? (
+                {isLoading || listLoading ? (
                     <FLPauPauLoader sx={{ height: '60svh' }} />
                 ) : (
                     Boolean(foods.length) &&
-                    foods.map(food => (
+                    foods.map((food, i) => (
                         <FLFoodlistItem
                             key={food.index}
                             title={food.name}
                             description={food.description || ''}
-                            currentSelection={currIdx === food.index}
+                            currentSelection={listStatus === PlayState.PLAY && currIdx === food.index}
+                            orderTime={
+                                currIdx <= food.index
+                                    ? getNearestTime(recurringDay, recurringTime).add(
+                                          i - foods.findIndex(f => f.index === currIdx),
+                                          'week',
+                                      )
+                                    : undefined
+                            }
                         />
                     ))
                 )}

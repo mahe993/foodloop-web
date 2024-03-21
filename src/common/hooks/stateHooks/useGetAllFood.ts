@@ -43,7 +43,7 @@ export default function useGetAllFood({ foodlistID, userID }: useGetAllFoodProps
 
             data.sort((a, b) => a.index - b.index);
 
-            await waitTime(2000); // fake load time
+            await waitTime(2); // fake load time
             setFoods(data);
         } catch (e) {
             console.log(e);
@@ -53,10 +53,10 @@ export default function useGetAllFood({ foodlistID, userID }: useGetAllFoodProps
     };
 
     useEffect(() => {
-        if (loading) {
+        if (loading && Boolean(userID) && Boolean(foodlistID)) {
             getAllFood(userID, foodlistID);
         }
-    }, [loading]);
+    }, [loading, userID, foodlistID]);
 
     return {
         foods: foods,

@@ -3,13 +3,15 @@ import FLImageBox from '../image/FLImageBox';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 import { defaultBoldText, smallBoldText } from '../../themes/typography';
 import { useTheme } from '@mui/material';
+import dayjs from 'dayjs';
+import { getTimeDifference } from '../../common/utils/utils';
+import useCurrentTime from '../../common/hooks/useCurrentTime';
 
 type FLFoodlistItemProps = {
     title: string;
     description: string;
     currentSelection: boolean;
-    completed: boolean;
-    orderTime: string;
+    orderTime?: dayjs.Dayjs;
     imgSrc?: string;
 };
 
@@ -17,11 +19,13 @@ export default function FLFoodlistItem({
     title,
     description,
     currentSelection,
-    completed,
     orderTime,
     imgSrc = '',
 }: FLFoodlistItemProps): JSX.Element {
+    const { now } = useCurrentTime();
     const theme = useTheme();
+
+    const timeLeft = getTimeDifference(now, orderTime as dayjs.Dayjs);
 
     return (
         <FLBox
@@ -60,12 +64,12 @@ export default function FLFoodlistItem({
                         flexDirection: 'column',
                         height: '15svh',
                         minWidth: '66%',
+                        paddingBlock: '1%',
                     }}
                 >
                     <FLBox
                         sx={{
                             ...defaultBoldText,
-                            flex: 1,
                             width: '100%',
                         }}
                     >
@@ -127,7 +131,9 @@ export default function FLFoodlistItem({
                                 /** required for ellipsis */
                             }}
                         >
-                            {completed ? 'Completed' : `Order by ${orderTime}`}
+                            {!!currentSelection && timeLeft}
+                            <br />
+                            {!orderTime ? 'Completed' : orderTime.tz('Asia/Singapore').format('DD MMM YY HH:mm [SGT]')}
                         </FLBox>
                     </FLBox>
                 </FLBox>
