@@ -38,7 +38,8 @@ export default function FLImageBox({
             }}
         >
             <img
-                alt="bento-item"
+                key={999}
+                alt="foodloop-img"
                 src={imgSrc}
                 onError={e => {
                     const target = e.target as HTMLImageElement;

@@ -47,7 +47,7 @@ export default function SearchContent({
                 }}
             >
                 <FLBox onClick={closeSearch} sx={{ flex: 0.1, justifyContent: 'flex-start' }}>
-                    <ArrowBackRoundedIcon sx={{ color: theme.palette.foodloop.main }} />
+                    <ArrowBackRoundedIcon sx={{ color: theme.palette.foodloop.main, cursor: 'pointer' }} />
                 </FLBox>
                 <FLBox sx={{ flex: 0.9, width: '100%', height: '100%' }}>
                     <FLInput

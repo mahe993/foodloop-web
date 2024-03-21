@@ -17,6 +17,7 @@ export default function FLFoodListPage(): JSX.Element {
         <FLPage
             sx={{
                 bgcolor: theme.palette.foodlist.main,
+                paddingBlockEnd: 0,
             }}
         >
             <FLBox
@@ -34,7 +35,7 @@ export default function FLFoodListPage(): JSX.Element {
                     inputPlaceholder="Search for food types"
                     addressLineOne="Demo Account"
                     addressLineTwo="Welcome to foodlist demo :)"
-                    leftIcon={<ArrowBackRoundedIcon sx={{ color: theme.palette.foodloop.main }} />}
+                    leftIcon={<ArrowBackRoundedIcon sx={{ color: theme.palette.foodloop.main, cursor: 'pointer' }} />}
                     lHandleClick={goBack}
                     rightPrimaryIcon={<></>}
                     rightSecondaryIcon={<></>}
@@ -50,7 +51,7 @@ export default function FLFoodListPage(): JSX.Element {
                             fontStyle: 'italic',
                         }}
                     >
-                        search content here
+                        search for food types
                     </FLBox>
                 </FLHeaderWithSearch>
             </FLBox>

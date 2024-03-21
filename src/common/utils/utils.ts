@@ -1,5 +1,5 @@
 import { CONTRIBUTORS } from '../../constants';
-import type { Contributor } from './types';
+import { Contributer } from '../hooks/stateHooks/types';
 
 export function defaultAction(logMsg: string): VoidFunction {
     return (): void => {
@@ -7,7 +7,7 @@ export function defaultAction(logMsg: string): VoidFunction {
     };
 }
 
-export function getContributors(): Contributor[] {
+export function getContributors(): Contributer[] {
     return CONTRIBUTORS.sort(() => Math.random() - 0.5);
 }
 

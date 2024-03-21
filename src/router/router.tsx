@@ -4,6 +4,7 @@ import FLErrorPage from '../pages/errorPage/FLErrorPage';
 import FLFoodListPage from '../pages/foodListPage/FLFoodListPage';
 import FLFoodListIndex from '../pages/foodListPage/FLFoodListIndex';
 import FLFoodListListing from '../pages/foodListPage/FLFoodListListing';
+import FLInvalidPage from '../pages/errorPage/FLInvalidPage';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
                 <Route element={<FLFoodListIndex />} errorElement={<FLErrorPage />} path="" />
                 <Route element={<FLFoodListListing />} errorElement={<FLErrorPage />} path=":id" />
             </Route>
+            <Route element={<FLInvalidPage />} errorElement={<FLErrorPage />} path="/invalid" />
         </>,
     ),
 );

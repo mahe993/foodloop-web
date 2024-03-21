@@ -7,19 +7,20 @@ import { useNavigate } from 'react-router-dom';
 
 type FLAlbumCoverProps = {
     id: number;
+    userID: number;
     title?: string;
     description?: string;
     imgURL?: string;
 };
 
-export default function FLAlbumCover({ id, title, description, imgURL = '' }: FLAlbumCoverProps): JSX.Element {
+export default function FLAlbumCover({ id, userID, title, description, imgURL = '' }: FLAlbumCoverProps): JSX.Element {
     const theme = useTheme();
     const navigate = useNavigate();
 
     return (
         <FLBox
             onClick={() => {
-                navigate(`/foodloop/${id}`);
+                navigate(`/foodloop/${id}`, { state: { title, description, userID } });
             }}
             sx={{
                 paddingBlock: '20%',
@@ -29,6 +30,7 @@ export default function FLAlbumCover({ id, title, description, imgURL = '' }: FL
                 position: 'relative',
                 flexDirection: 'column',
                 overflow: 'hidden',
+                cursor: 'pointer',
             }}
         >
             <FLImageBox

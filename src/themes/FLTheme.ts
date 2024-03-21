@@ -19,7 +19,9 @@ const FLTheme = createTheme({
         },
         foodlist: {
             main: alpha('#191414', 1),
-            light: alpha('#352b2b', 1),
+            light: alpha('#212121', 1),
+            dark: alpha('#121212', 1),
+            contrastText: alpha('#757575', 1),
         },
     },
 });
