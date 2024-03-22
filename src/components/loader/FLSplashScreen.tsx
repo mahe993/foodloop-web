@@ -5,6 +5,7 @@ import Slide from '@mui/material/Slide';
 import PandaIcon from '../../assets/svgs/PandaIcon';
 import { keyframes } from '@emotion/react';
 import { smallBoldText } from '../../themes/typography';
+import { useSessionContext } from '../../contexts/SessionContext';
 
 type SplashScreenProps = {
     pageLoading: boolean;
@@ -15,6 +16,11 @@ export default function SplashScreen({ pageLoading = true, duration = 1000 }: Sp
     const [display, setDisplay] = useState(true);
     const [showSplash, setShowSplash] = useState(true);
     const [animate, setAnimate] = useState(false);
+
+    const {
+        session: { fuxSplash },
+        setSession,
+    } = useSessionContext();
 
     const theme = useTheme();
 
@@ -41,12 +47,19 @@ export default function SplashScreen({ pageLoading = true, duration = 1000 }: Sp
     const onTransitionComplete = async (d: number): Promise<void> => {
         await new Promise(resolve => setTimeout(() => resolve('Promise resolved'), d));
         setDisplay(false);
+        setSession(prev => ({ ...prev, fuxSplash: false }));
     };
 
     const classes = useStyles();
 
     return (
-        <FLBox sx={{ ...classes.root, maxWidth: theme.breakpoints.values.tablet, display: display ? 'flex' : 'none' }}>
+        <FLBox
+            sx={{
+                ...classes.root,
+                maxWidth: theme.breakpoints.values.tablet,
+                display: display && fuxSplash ? 'flex' : 'none',
+            }}
+        >
             <Slide
                 direction="right"
                 in={showSplash}

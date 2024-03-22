@@ -42,3 +42,7 @@ export enum PlayState {
 }
 
 export type FoodResp = Omit<Food, 'id'> & Omit<FoodlistFoods, 'foodID' | 'foodListID'>;
+
+export type Session = {
+    fuxSplash: boolean;
+};

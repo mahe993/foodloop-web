@@ -6,15 +6,18 @@ import router from './router/router';
 import FLErrorSnackBar from './components/snackbar/FLErrorSnackbar';
 import ErrorSnackbarProvider from './contexts/ErrorSnackbarContext';
 import UserContextProvider from './contexts/UserContext';
+import SessionContextProvider from './contexts/SessionContext';
 
 export default function App(): JSX.Element {
     return (
         <ThemeProvider theme={FLTheme}>
             <ErrorSnackbarProvider>
                 <UserContextProvider>
-                    <CssBaseline enableColorScheme />
-                    <RouterProvider router={router} />
-                    <FLErrorSnackBar />
+                    <SessionContextProvider>
+                        <CssBaseline enableColorScheme />
+                        <RouterProvider router={router} />
+                        <FLErrorSnackBar />
+                    </SessionContextProvider>
                 </UserContextProvider>
             </ErrorSnackbarProvider>
         </ThemeProvider>
