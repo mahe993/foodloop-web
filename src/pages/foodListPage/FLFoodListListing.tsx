@@ -31,10 +31,10 @@ export default function FLFoodListListing(): JSX.Element {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!whiteList.has(userID) && (!title || !userID || userID !== user?.id)) {
+        if (!listLoading && !whiteList.has(userID) && (!title || !userID || userID !== user?.id)) {
             navigate('/invalid');
         }
-    }, []);
+    }, [listLoading]);
 
     const handleClick = (): void => {
         setListStatus(listStatus === PlayState.PLAY ? PlayState.PAUSE : PlayState.PLAY);

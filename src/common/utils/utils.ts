@@ -83,6 +83,8 @@ export function getNearestTime(dayOfWeek: string, time: string): dayjs.Dayjs {
 
 // Function to get the time difference between two dayjs objects including days, formatted as days:hours:minutes:seconds
 export function getTimeDifference(start: dayjs.Dayjs, end: dayjs.Dayjs): string {
+    if (!end) return '0d 00h 00m 00s';
+
     // Get the duration between the two dayjs objects
     const duration = dayjs.duration(end.diff(start));
 

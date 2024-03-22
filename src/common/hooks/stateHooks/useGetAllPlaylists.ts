@@ -35,7 +35,7 @@ export default function useGetAllPlaylists({ userID }: useGetAllPlaylistsProps):
     };
 
     useEffect(() => {
-        if (loading) {
+        if (loading && Boolean(userID)) {
             getAllPlaylists(userID);
         }
     }, [loading, userID]);

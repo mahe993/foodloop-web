@@ -55,7 +55,6 @@ export default function FLFoodListPage(): JSX.Element {
                     </FLBox>
                 </FLHeaderWithSearch>
             </FLBox>
-
             <Outlet />
         </FLPage>
     );

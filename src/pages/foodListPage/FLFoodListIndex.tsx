@@ -1,19 +1,15 @@
 import FLDataTray from '../../layouts/datatray/FLDataTray';
+import FLSplashScreen from '../../components/loader/FLSplashScreen';
 import FLAlbumCover from '../../components/card/FLAlbumCover';
 import FLBox from '../../components/box/FLBox';
 import { Foodlist } from '../../common/hooks/stateHooks/types';
 import useGetAllPlaylists from '../../common/hooks/stateHooks/useGetAllPlaylists';
 import FLPauPauLoader from '../../components/loader/FLPauPauLoader';
 import { useUserContext } from '../../contexts/UserContext';
-import { useEffect } from 'react';
 
 export default function FLFoodListIndex(): JSX.Element {
     const user = useUserContext();
-    const { playlists, isLoading, refresh } = useGetAllPlaylists({ userID: user?.id });
-
-    useEffect(() => {
-        refresh();
-    }, []);
+    const { playlists, isLoading } = useGetAllPlaylists({ userID: user?.id });
 
     return (
         <FLBox
@@ -25,6 +21,8 @@ export default function FLFoodListIndex(): JSX.Element {
                 paddingBlockStart: '20svh',
             }}
         >
+            <FLSplashScreen pageLoading={isLoading} />
+
             <FLDataTray
                 sx={{
                     color: 'white',
