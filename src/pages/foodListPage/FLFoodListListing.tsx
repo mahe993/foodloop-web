@@ -96,7 +96,7 @@ export default function FLFoodListListing(): JSX.Element {
                 sx={{
                     width: '100%',
                     flexDirection: 'column',
-                    gap: '0.5svh',
+                    gap: '1svh',
                     justifyContent: 'flex-start',
                 }}
             >

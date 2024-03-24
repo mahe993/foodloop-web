@@ -6,10 +6,22 @@ import { Foodlist } from '../../common/hooks/stateHooks/types';
 import useGetAllPlaylists from '../../common/hooks/stateHooks/useGetAllPlaylists';
 import FLPauPauLoader from '../../components/loader/FLPauPauLoader';
 import { useUserContext } from '../../contexts/UserContext';
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
+import { useErrorSnackbar } from '../../contexts/ErrorSnackbarContext';
+import { useTheme } from '@mui/material';
 
 export default function FLFoodListIndex(): JSX.Element {
     const user = useUserContext();
     const { playlists, isLoading } = useGetAllPlaylists({ userID: user?.id });
+    const { setOpen: openSnackbar } = useErrorSnackbar();
+
+    const theme = useTheme();
+
+    const createFoodlist = (): void => {
+        if (openSnackbar) openSnackbar(true);
+
+        // open modal to create foodlist
+    };
 
     return (
         <FLBox
@@ -28,6 +40,18 @@ export default function FLFoodListIndex(): JSX.Element {
                     color: 'white',
                 }}
                 title="Your Foodlists"
+                icon={
+                    <FLBox
+                        sx={{
+                            cursor: 'pointer',
+                        }}
+                        onClick={() => {
+                            createFoodlist();
+                        }}
+                    >
+                        <AddCircleRoundedIcon sx={{ color: theme.palette.foodloop.main }} />
+                    </FLBox>
+                }
             >
                 <FLBox
                     sx={{

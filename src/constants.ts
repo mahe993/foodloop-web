@@ -455,3 +455,13 @@ export const MOCK_FOODLISTFOODS = [
         index: 15,
     },
 ];
+
+export const splashMessages: string[] = [
+    'Getting ready...',
+    'Anytime now...',
+    'Last touches...',
+    'Not to worry, everything is fine',
+    'hmm......',
+    'So... great weather today huh?',
+    'I think...',
+];

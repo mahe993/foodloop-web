@@ -6,6 +6,8 @@ import PandaIcon from '../../assets/svgs/PandaIcon';
 import { keyframes } from '@emotion/react';
 import { smallBoldText } from '../../themes/typography';
 import { useSessionContext } from '../../contexts/SessionContext';
+import useRefresh from '../../common/hooks/useRefresh';
+import { splashMessages } from '../../constants';
 
 type SplashScreenProps = {
     pageLoading: boolean;
@@ -16,6 +18,7 @@ export default function SplashScreen({ pageLoading = true, duration = 1000 }: Sp
     const [display, setDisplay] = useState(true);
     const [showSplash, setShowSplash] = useState(true);
     const [animate, setAnimate] = useState(false);
+    const msgIdx = useRefresh(3000);
 
     const {
         session: { fuxSplash },
@@ -92,7 +95,7 @@ export default function SplashScreen({ pageLoading = true, duration = 1000 }: Sp
                             animationFillMode: 'forwards',
                         }}
                     >
-                        Getting ready...
+                        {splashMessages[msgIdx]}
                     </FLBox>
                 </Box>
             </Slide>
