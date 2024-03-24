@@ -33,3 +33,8 @@ export const xSmallLightText = {
     fontWeight: 300,
     fontSize: '0.6rem',
 };
+
+export const albumTitle = {
+    fontFamily: 'Ma Shan Zheng',
+    fontSize: '1.5rem',
+};

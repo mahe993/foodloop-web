@@ -1,8 +1,26 @@
-import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { isRouteErrorResponse, useNavigate, useRouteError } from 'react-router-dom';
 import FLBox from '../../components/box/FLBox';
 
 export default function FLErrorPage(): JSX.Element {
+    const [seconds, setSeconds] = useState(5);
+
+    const navigate = useNavigate();
     const error = useRouteError();
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSeconds(seconds => seconds - 1);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        if (seconds === 0) {
+            navigate('/');
+        }
+    }, [seconds]);
 
     return (
         <FLBox flexDirection="column">
@@ -27,6 +45,8 @@ export default function FLErrorPage(): JSX.Element {
                     <i>{(error as Error).message}</i>
                 </p>
             ) : null}
+
+            {seconds <= 3 && <p>You will be redirected to home page in {seconds} seconds.</p>}
         </FLBox>
     );
 }

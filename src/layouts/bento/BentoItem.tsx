@@ -54,11 +54,21 @@ export default function BentoItem({ title, description, imgSrc, onClick, sx }: B
                 <FLBox
                     sx={{
                         ...(isPhone ? smallBoldText : defaultBoldText),
+                        marginInlineEnd:
+                            (sx as { flexDirection?: 'row' | 'column' })?.flexDirection === 'row' ? 0 : '6%',
                     }}
                 >
                     {title}
                 </FLBox>
-                <FLBox sx={{ ...(isPhone ? xSmallLightText : smallLightText) }}>{description}</FLBox>
+                <FLBox
+                    sx={{
+                        ...(isPhone ? xSmallLightText : smallLightText),
+                        marginInlineEnd:
+                            (sx as { flexDirection?: 'row' | 'column' })?.flexDirection === 'row' ? 0 : '6%',
+                    }}
+                >
+                    {description}
+                </FLBox>
             </FLBox>
             {Boolean(imgSrc) && (
                 <FLImageBox

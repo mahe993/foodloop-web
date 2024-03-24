@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Box, Collapse, useTheme } from '@mui/material';
 import SearchBox from './SearchBox';
 import SearchContent from './SearchContent';
@@ -8,7 +9,14 @@ import { smallLightText } from '../../themes/typography';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import FLButton from '../button/FLButton';
 
-export default function FLSearch(): JSX.Element {
+type FLSearchProps = {
+    searchText?: string;
+    inputPlaceholder?: string;
+    themeColor?: string;
+    children?: ReactNode;
+};
+
+export default function FLSearch({ searchText, inputPlaceholder, children, themeColor }: FLSearchProps): JSX.Element {
     const [openSearch, setOpenSearch] = useState<boolean>(false);
     const { isHidden } = useHideOnScroll();
 
@@ -24,7 +32,7 @@ export default function FLSearch(): JSX.Element {
                 <FLBox
                     onClick={handleClick}
                     sx={{
-                        bgcolor: theme.palette.foodloop.main,
+                        bgcolor: themeColor === 'foodlist' ? theme.palette.foodlist.light : theme.palette.foodloop.main,
                         height: '8svh',
                         width: '100%',
                         paddingInline: '4%',
@@ -39,16 +47,19 @@ export default function FLSearch(): JSX.Element {
                             width: '100%',
                         }}
                     >
-                        Search for shops & restaurants
+                        {searchText ?? 'Search for shops & restaurants'}
                     </FLButton>
                 </FLBox>
             </Collapse>
             <SearchBox open={openSearch}>
                 <SearchContent
+                    inputPlaceholder={inputPlaceholder}
                     closeSearch={() => {
                         setOpenSearch(false);
                     }}
-                />
+                >
+                    {children}
+                </SearchContent>
             </SearchBox>
         </Box>
     );

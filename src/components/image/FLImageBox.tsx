@@ -5,6 +5,7 @@ type FLImageBoxProps = {
     boxWidth: string;
     boxHeight: string;
     imgSrc: string;
+    fallback?: string;
     sx?: SxProps;
 } & (
     | {
@@ -23,12 +24,12 @@ export default function FLImageBox({
     imgSrc,
     imgWidth,
     imgHeight,
+    fallback = 'src/assets/images/foodloop.png',
     sx,
 }: FLImageBoxProps): JSX.Element {
     return (
         <FLBox
             sx={{
-                alignSelf: 'flex-end',
                 width: boxWidth,
                 height: boxHeight,
                 overflow: 'hidden',
@@ -37,8 +38,13 @@ export default function FLImageBox({
             }}
         >
             <img
-                alt="bento-item"
+                key={999}
+                alt="foodloop-img"
                 src={imgSrc}
+                onError={e => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = fallback;
+                }}
                 style={{
                     display: 'block',
                     height: imgHeight,

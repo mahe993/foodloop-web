@@ -6,10 +6,11 @@ import { ReactNode } from 'react';
 type FLDataTrayProps = {
     title: string;
     children: ReactNode;
+    icon?: ReactNode;
     sx?: SxProps;
 };
 
-export default function FLDataTray({ title, sx, children }: FLDataTrayProps): JSX.Element {
+export default function FLDataTray({ title, sx, icon, children }: FLDataTrayProps): JSX.Element {
     return (
         <FLBox
             sx={{
@@ -25,7 +26,15 @@ export default function FLDataTray({ title, sx, children }: FLDataTrayProps): JS
                 ...sx,
             }}
         >
-            <FLBox sx={{ ...defaultBoldText }}>{title}</FLBox>
+            <FLBox
+                sx={{
+                    justifyContent: 'space-between',
+                    width: '100%',
+                }}
+            >
+                <FLBox sx={{ ...defaultBoldText }}>{title}</FLBox>
+                <FLBox>{icon}</FLBox>
+            </FLBox>
             {children}
         </FLBox>
     );
