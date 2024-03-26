@@ -2,39 +2,46 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import FLBox from '../../components/box/FLBox';
 import { smallLightText, albumTitle } from '../../themes/typography';
-import { useEffect } from 'react';
-import { whiteList } from '../../constants';
+import { useEffect, useState } from 'react';
 import { useUserContext } from '../../contexts/UserContext';
 import { PlayState } from '../../common/hooks/stateHooks/types';
 import FLPlayButton from '../../components/button/FLPlayButton';
 import FLFoodlistItem from '../../components/card/FLFoodlistItem';
-import useGetAllFood from '../../common/hooks/stateHooks/useGetAllFood';
 import FLPauPauLoader from '../../components/loader/FLPauPauLoader';
 import useGetPlaylistStatus from '../../common/hooks/stateHooks/useGetPlaylistStatus';
 import { getNearestTime } from '../../common/utils/utils';
+import dayjs from 'dayjs';
 
 export default function FLFoodListListing(): JSX.Element {
+    const [description, setDescription] = useState<string>('');
+    const [nearestTime, setNearestTime] = useState<dayjs.Dayjs>(dayjs());
     const { id } = useParams();
     const user = useUserContext();
-    const { foods, isLoading } = useGetAllFood({ userID: user.id, foodlistID: Number(id) });
 
     const {
-        foodlist: { recurringDay, recurringTime, status: listStatus, currentFoodIdx: currIdx, userID, title },
+        foodlist: { recurringDay = '', recurringTime = '', status: listStatus, currentFoodIdx: currIdx, title },
+        foods,
         setCurrIdx,
         setListStatus,
         isLoading: listLoading,
+        refresh,
     } = useGetPlaylistStatus({
-        id: Number(id),
+        foodlistID: Number(id),
+        userID: user?.id,
     });
-    const description = `Every ${recurringDay}, at ${recurringTime}`;
+
+    useEffect(() => {
+        setDescription(`Every ${recurringDay}, at ${recurringTime}`);
+        if (recurringDay && recurringTime) setNearestTime(getNearestTime(recurringDay, recurringTime));
+    }, [recurringDay, recurringTime, currIdx, listStatus]);
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!listLoading && !whiteList.has(userID) && (!title || !userID || userID !== user?.id)) {
+        if (!listLoading && (!title || !user.id || !recurringDay || !recurringTime)) {
             navigate('/invalid');
         }
-    }, [listLoading]);
+    }, [listLoading, navigate, recurringDay, recurringTime, title, user.id]);
 
     const handleClick = (): void => {
         setListStatus(listStatus === PlayState.PLAY ? PlayState.PAUSE : PlayState.PLAY);
@@ -43,6 +50,28 @@ export default function FLFoodListListing(): JSX.Element {
             setCurrIdx(1);
         }
     };
+
+    useEffect(() => {
+        if (!recurringDay || !recurringTime) return;
+        // Calculate the difference between now and the target time
+        const now = dayjs();
+        const targetTime = getNearestTime(recurringDay, recurringTime);
+        const timeDifference = targetTime.diff(now);
+
+        // If the target time has already passed, do nothing
+        if (timeDifference <= 0) {
+            return;
+        }
+
+        // Set a timeout to call setCurrIdx when the time difference reaches zero
+        const timeoutId = setTimeout(() => {
+            setCurrIdx(currIdx + 1);
+            refresh();
+        }, timeDifference);
+
+        // Clear the timeout when the component unmounts
+        return () => clearTimeout(timeoutId);
+    }, [currIdx, recurringDay, recurringTime]);
 
     return (
         <FLBox
@@ -62,34 +91,38 @@ export default function FLFoodListListing(): JSX.Element {
                     width: '100%',
                 }}
             >
-                <FLBox
-                    sx={{
-                        flexDirection: 'column',
-                    }}
-                >
-                    <FLBox
-                        sx={{
-                            ...albumTitle,
-                            justifyContent: 'flex-start',
-                            width: '100%',
-                            textTransform: 'uppercase',
-                        }}
-                    >
-                        {title}
-                    </FLBox>
-                    <FLBox
-                        sx={{
-                            ...smallLightText,
-                            justifyContent: 'flex-start',
-                            width: '100%',
-                            color: 'grey.600',
-                        }}
-                    >
-                        {description}
-                    </FLBox>
-                </FLBox>
+                {!listLoading && (
+                    <>
+                        <FLBox
+                            sx={{
+                                flexDirection: 'column',
+                            }}
+                        >
+                            <FLBox
+                                sx={{
+                                    ...albumTitle,
+                                    justifyContent: 'flex-start',
+                                    width: '100%',
+                                    textTransform: 'uppercase',
+                                }}
+                            >
+                                {title}
+                            </FLBox>
+                            <FLBox
+                                sx={{
+                                    ...smallLightText,
+                                    justifyContent: 'flex-start',
+                                    width: '100%',
+                                    color: 'grey.600',
+                                }}
+                            >
+                                {description}
+                            </FLBox>
+                        </FLBox>
 
-                {!listLoading && !isLoading && <FLPlayButton state={listStatus} handleClick={handleClick} />}
+                        <FLPlayButton state={listStatus} handleClick={handleClick} />
+                    </>
+                )}
             </FLBox>
 
             <FLBox
@@ -100,10 +133,12 @@ export default function FLFoodListListing(): JSX.Element {
                     justifyContent: 'flex-start',
                 }}
             >
-                {isLoading || listLoading ? (
+                {listLoading ? (
                     <FLPauPauLoader sx={{ height: '60svh' }} />
                 ) : (
                     Boolean(foods.length) &&
+                    Boolean(recurringDay) &&
+                    Boolean(recurringTime) &&
                     foods.map((food, i) => (
                         <FLFoodlistItem
                             key={food.index}
@@ -112,10 +147,7 @@ export default function FLFoodListListing(): JSX.Element {
                             currentSelection={listStatus === PlayState.PLAY && currIdx === food.index}
                             orderTime={
                                 currIdx <= food.index
-                                    ? getNearestTime(recurringDay, recurringTime).add(
-                                          i - foods.findIndex(f => f.index === currIdx),
-                                          'week',
-                                      )
+                                    ? nearestTime.add(i - foods.findIndex(f => f.index === currIdx), 'week')
                                     : undefined
                             }
                         />

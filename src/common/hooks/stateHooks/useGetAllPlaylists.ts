@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { MOCK_FOODLISTS, whiteList } from '../../../constants';
 import { Foodlist } from './types';
-import { waitTime } from '../../utils/utils';
+import { newAbortSignal, waitTime } from '../../utils/utils';
 import useCallActions from './useCallActions';
+import { getAllFoodlist } from '../../../api/foodlist/read';
 
 type useGetAllPlaylistsProps = {
     userID: number;
@@ -24,8 +25,11 @@ export default function useGetAllPlaylists({ userID }: useGetAllPlaylistsProps):
             let data: Foodlist[] = [];
             if (whiteList.has(id)) {
                 data = MOCK_FOODLISTS;
+                await waitTime(3); // fake load time
+            } else {
+                // fetch data from server
+                data = await getAllFoodlist(newAbortSignal(), { userID: `${id}` });
             }
-            await waitTime(3); // fake load time
             setPlaylists(data);
         } catch (e) {
             console.log(e);

@@ -2,7 +2,7 @@ import { Contributer, Food, Foodlist, PlayState } from './common/hooks/stateHook
 
 export const CONTRIBUTORS: Contributer[] = [
     {
-        id: 999,
+        id: 2,
         name: 'Quek Ma He',
         role: 'Software Engineer',
         ghURL: 'https://github.com/mahe993/',
@@ -10,7 +10,7 @@ export const CONTRIBUTORS: Contributer[] = [
         profilePicURL: 'src/assets/images/profileNoBG.png',
     },
     {
-        id: 998,
+        id: 3,
         name: 'Park Chae Seong',
         role: 'Software Engineer',
         ghURL: 'https://github.com/chae-seong/',
@@ -18,7 +18,7 @@ export const CONTRIBUTORS: Contributer[] = [
         profilePicURL: 'src/assets/images/chaeseong.png',
     },
     {
-        id: 997,
+        id: 1,
         name: 'Foo Chi Hen',
         role: 'Software Engineer',
         ghURL: 'https://github.com/koushireo',
@@ -464,4 +464,10 @@ export const splashMessages: string[] = [
     'hmm......',
     'So... great weather today huh?',
     'I think...',
+    'Should we come back another day?',
+    'Maybe some other time, sorry :(',
 ];
+
+export const DAYS: string[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+
+export const TIMINGS: string[] = ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'];

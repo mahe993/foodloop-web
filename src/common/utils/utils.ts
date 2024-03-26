@@ -20,12 +20,16 @@ export function getContributors(): Contributer[] {
 }
 
 export async function waitTime(maxTime: number): Promise<string> {
-    const wait = (Math.floor(Math.random() * maxTime) + 1) * 1000;
+    const wait = maxTime * 1000;
     return new Promise(resolve => setTimeout(() => resolve('Promise resolved'), wait));
 }
 
 // Function to create a dayjs object for the nearest future day of the week and time
 export function getNearestTime(dayOfWeek: string, time: string): dayjs.Dayjs {
+    if (!dayOfWeek || !time) {
+        console.error('Invalid day of the week or time');
+        return dayjs();
+    }
     // Map day of the week to a numerical value (0 for Sunday, 1 for Monday, ..., 6 for Saturday)
     const dayOfWeekMap: Record<string, number> = {
         sunday: 0,
@@ -100,4 +104,14 @@ export function getTimeDifference(start: dayjs.Dayjs, end: dayjs.Dayjs): string 
         .padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
 
     return formattedDifference;
+}
+
+export function newAbortSignal(timeoutMs?: number): AbortSignal {
+    let timeout = timeoutMs;
+    if (!timeoutMs) timeout = 10000;
+
+    const abortController = new AbortController();
+    setTimeout(() => abortController.abort(), timeout);
+
+    return abortController.signal;
 }

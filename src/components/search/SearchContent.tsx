@@ -25,7 +25,7 @@ export default function SearchContent({
 
     useEffect(() => {
         // TODO: network call for debounced value
-        console.log(debouncedSearchValue);
+        // console.log(debouncedSearchValue);
     }, [debouncedSearchValue]);
 
     return (

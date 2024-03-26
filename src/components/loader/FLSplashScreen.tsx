@@ -18,7 +18,7 @@ export default function SplashScreen({ pageLoading = true, duration = 1000 }: Sp
     const [display, setDisplay] = useState(true);
     const [showSplash, setShowSplash] = useState(true);
     const [animate, setAnimate] = useState(false);
-    const msgIdx = useRefresh(3000);
+    const msgIdx = useRefresh(10000);
 
     const {
         session: { fuxSplash },
@@ -95,7 +95,9 @@ export default function SplashScreen({ pageLoading = true, duration = 1000 }: Sp
                             animationFillMode: 'forwards',
                         }}
                     >
-                        {splashMessages[msgIdx]}
+                        {msgIdx >= splashMessages.length
+                            ? splashMessages[splashMessages.length - 1]
+                            : splashMessages[msgIdx]}
                     </FLBox>
                 </Box>
             </Slide>
@@ -150,7 +152,6 @@ const useStyles = (): StylesType => ({
     root: {
         position: 'absolute',
         top: 0,
-        width: '100vw',
         height: '100svh',
         display: 'flex',
         justifyContent: 'center',

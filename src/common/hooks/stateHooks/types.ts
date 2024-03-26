@@ -1,11 +1,11 @@
 export type Foodlist = {
     id: number;
-    userID: number; // FK
     title: string;
     recurringDay: string;
     recurringTime: string;
     currentFoodIdx: number;
     status: PlayState;
+    category: string;
     imgURL?: string;
 };
 
@@ -23,9 +23,10 @@ export type Contributer = User & {
 
 export type Food = {
     id: number;
-    vendorID: number; // FK
     name: string;
     description?: string;
+    category: string;
+    index: number;
 };
 
 export type FoodlistFoods = {
@@ -38,11 +39,15 @@ export type FoodlistFoods = {
 export enum PlayState {
     PLAY = 'play',
     PAUSE = 'pause',
-    STOP = 'stop',
 }
 
 export type FoodResp = Omit<Food, 'id'> & Omit<FoodlistFoods, 'foodID' | 'foodListID'>;
 
 export type Session = {
     fuxSplash: boolean;
+};
+
+export type FoodlistInfo = {
+    foodlist: Foodlist;
+    foods: Food[];
 };

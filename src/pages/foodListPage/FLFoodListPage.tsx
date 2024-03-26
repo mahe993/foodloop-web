@@ -4,8 +4,10 @@ import FLPage from '../base/FLPage';
 import FLHeaderWithSearch from '../../layouts/headerWithSearch/FLHeaderWithSearch';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../contexts/UserContext';
 
 export default function FLFoodListPage(): JSX.Element {
+    const user = useUserContext();
     const theme = useTheme();
     const navigate = useNavigate();
 
@@ -33,7 +35,7 @@ export default function FLFoodListPage(): JSX.Element {
                 <FLHeaderWithSearch
                     searchText="Search for food types"
                     inputPlaceholder="Search for food types"
-                    addressLineOne="Demo Account"
+                    addressLineOne={user?.name}
                     addressLineTwo="Welcome to foodlist demo :)"
                     leftIcon={<ArrowBackRoundedIcon sx={{ color: theme.palette.foodloop.main, cursor: 'pointer' }} />}
                     lHandleClick={goBack}

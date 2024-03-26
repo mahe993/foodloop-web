@@ -3,9 +3,18 @@ import { styled } from '@mui/material/styles';
 
 type FLButtonProps = {
     pressState?: boolean;
+    hoverColor?: string;
+    onClick?: () => void;
 } & ButtonOwnProps;
 
-export default function FLButton({ pressState = false, children, sx, ...buttonProps }: FLButtonProps): JSX.Element {
+export default function FLButton({
+    pressState = false,
+    hoverColor = 'white',
+    onClick = (): void => {},
+    children,
+    sx,
+    ...buttonProps
+}: FLButtonProps): JSX.Element {
     return (
         <ButtonWithPressedState
             disableRipple
@@ -18,8 +27,12 @@ export default function FLButton({ pressState = false, children, sx, ...buttonPr
                     gap: '2%',
                     paddingInline: '6%',
                 }),
+                '&:hover': {
+                    backgroundColor: hoverColor,
+                },
                 ...sx,
             }}
+            onClick={onClick}
             {...buttonProps}
         >
             {children}
@@ -32,7 +45,4 @@ const ButtonWithPressedState = styled(Button)({
     backgroundColor: 'white',
     borderRadius: '50px',
     border: 0,
-    '&:hover': {
-        backgroundColor: 'white',
-    },
 });
