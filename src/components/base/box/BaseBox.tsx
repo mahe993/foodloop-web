@@ -1,14 +1,15 @@
 import { ReactNode } from 'react';
-import { Box, BoxProps, SxProps } from '@mui/material';
+import { Box, SxProps } from '@mui/material';
 
 export type BaseBoxProps = {
     sx?: SxProps;
     children: ReactNode;
-} & BoxProps;
+    onClick?: VoidFunction;
+};
 
-export default function BaseBox({ sx, children, ...boxProps }: BaseBoxProps): JSX.Element {
+export default function BaseBox({ sx, children, onClick }: BaseBoxProps): JSX.Element {
     return (
-        <Box {...boxProps} sx={{ ...sx }}>
+        <Box sx={{ ...sx }} onClick={onClick}>
             {children}
         </Box>
     );

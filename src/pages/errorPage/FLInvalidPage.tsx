@@ -22,7 +22,12 @@ export default function FLInvalidPage(): JSX.Element {
     }, [seconds]);
 
     return (
-        <FLBox flexDirection="column" padding="4%">
+        <FLBox
+            sx={{
+                flexDirection: 'column',
+                padding: '4%',
+            }}
+        >
             <h1>Invalid action/foodlist detected.</h1>
             <br />
             <p>You might be attempting a blocked action.</p>

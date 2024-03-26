@@ -23,7 +23,7 @@ export default function FLErrorPage(): JSX.Element {
     }, [seconds]);
 
     return (
-        <FLBox flexDirection="column">
+        <FLBox sx={{ flexDirection: 'column' }}>
             {isRouteErrorResponse(error) ? (
                 <>
                     <h1>Oops! {error.status}</h1>

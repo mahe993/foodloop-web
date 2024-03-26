@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MOCK_FOODLISTS, whiteList } from '../../../constants';
+import { whiteList } from '../../../constants';
 import { Foodlist } from './types';
 import { newAbortSignal, waitTime } from '../../utils/utils';
 import useCallActions from './useCallActions';
@@ -24,7 +24,7 @@ export default function useGetAllPlaylists({ userID }: useGetAllPlaylistsProps):
             setLoading(true);
             let data: Foodlist[] = [];
             if (whiteList.has(id)) {
-                data = MOCK_FOODLISTS;
+                // data = MOCK_FOODLISTS;
                 await waitTime(3); // fake load time
             } else {
                 // fetch data from server

@@ -1,13 +1,14 @@
 import { ReactNode } from 'react';
 import BaseBox from '../base/box/BaseBox';
-import { BoxProps, SxProps } from '@mui/material';
+import { SxProps } from '@mui/material';
 
 type FLBoxProps = {
     children?: ReactNode;
     sx?: SxProps;
-} & BoxProps;
+    onClick?: VoidFunction;
+};
 
-export default function FLBox({ children, sx, ...boxProps }: FLBoxProps): JSX.Element {
+export default function FLBox({ children, sx, onClick }: FLBoxProps): JSX.Element {
     return (
         <BaseBox
             sx={{
@@ -16,7 +17,7 @@ export default function FLBox({ children, sx, ...boxProps }: FLBoxProps): JSX.El
                 justifyContent: 'center',
                 ...sx,
             }}
-            {...boxProps}
+            onClick={onClick}
         >
             {children}
         </BaseBox>

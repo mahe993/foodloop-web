@@ -19,9 +19,7 @@ export default function PlayIcon({ state, onClick }: PlayIconProps): JSX.Element
             onClick={onClick}
         >
             <circle cx="12" cy="12" r="10" fill={theme.palette.foodloop.main} stroke={theme.palette.foodloop.main} />
-            {(state === PlayState.PAUSE || state === PlayState.STOP) && (
-                <polygon points="10 8 16 12 10 16 10 8" fill={theme.palette.foodlist.main} />
-            )}
+            {state === PlayState.PAUSE && <polygon points="10 8 16 12 10 16 10 8" fill={theme.palette.foodlist.main} />}
 
             {state === PlayState.PLAY && (
                 <>
