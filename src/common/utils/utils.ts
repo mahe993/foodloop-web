@@ -108,7 +108,7 @@ export function getTimeDifference(start: dayjs.Dayjs, end: dayjs.Dayjs): string 
 
 export function newAbortSignal(timeoutMs?: number): AbortSignal {
     let timeout = timeoutMs;
-    if (!timeoutMs) timeout = 10000;
+    if (!timeoutMs) timeout = 100000;
 
     const abortController = new AbortController();
     setTimeout(() => abortController.abort(), timeout);
