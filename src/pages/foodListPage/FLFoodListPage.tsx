@@ -5,6 +5,7 @@ import FLHeaderWithSearch from '../../layouts/headerWithSearch/FLHeaderWithSearc
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../contexts/UserContext';
+import { smallLightText } from '../../themes/typography';
 
 export default function FLFoodListPage(): JSX.Element {
     const user = useUserContext();
@@ -51,9 +52,13 @@ export default function FLFoodListPage(): JSX.Element {
                             marginBlockStart: '4%',
                             paddingInline: '4%',
                             fontStyle: 'italic',
+                            ...smallLightText,
+                            textAlign: 'center',
                         }}
                     >
                         search for food types
+                        <br />
+                        **Feature in development**
                     </FLBox>
                 </FLHeaderWithSearch>
             </FLBox>
