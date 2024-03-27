@@ -1,4 +1,21 @@
+/* eslint-disable indent */
 import { Contributer } from './common/hooks/stateHooks/types';
+
+/* eslint-disable default-case */
+const backendURL = (devEnv: string): string => {
+    switch (devEnv) {
+        case 'development':
+            return import.meta.env.VITE_DEVELOPMENT_BACKEND_URL;
+
+        case 'production':
+            return import.meta.env.VITE_PRODUCTION_BACKEND_URL;
+
+        default:
+            return import.meta.env.VITE_DEVELOPMENT_BACKEND_URL;
+    }
+};
+
+export const BACKEND_URL = backendURL(process.env.NODE_ENV!);
 
 export const CONTRIBUTORS: Contributer[] = [
     {

@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import { BACKEND_URL } from '../../constants';
 
 type postParams = {
     url: string;
@@ -11,7 +12,7 @@ export async function POST({ url, abortSignal, params, data }: postParams): Prom
     return axios({
         method: 'post',
         url: url,
-        baseURL: 'http://localhost:1111/api/v1/',
+        baseURL: BACKEND_URL,
         params: params,
         data: data,
         signal: abortSignal,
@@ -28,7 +29,7 @@ export async function GET({ url, abortSignal, params }: getParams): Promise<Axio
     return axios({
         method: 'get',
         url: url,
-        baseURL: 'http://localhost:1111/api/v1/',
+        baseURL: BACKEND_URL,
         params: params,
         signal: abortSignal,
     });
@@ -45,7 +46,7 @@ export function PUT({ url, abortSignal, params, data }: putParams): Promise<Axio
     return axios({
         method: 'put',
         url: url,
-        baseURL: 'http://localhost:1111/api/v1/',
+        baseURL: BACKEND_URL,
         params: params,
         data: data,
         signal: abortSignal,
