@@ -1,6 +1,6 @@
 import { CONTRIBUTORS } from '../../constants';
 import { Contributer } from '../hooks/stateHooks/types';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
