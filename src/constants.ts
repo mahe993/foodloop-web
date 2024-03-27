@@ -15,7 +15,7 @@ const backendURL = (devEnv: string): string => {
     }
 };
 
-export const BACKEND_URL = `${backendURL(process.env.NODE_ENV!)}api/v1/`;
+export const BACKEND_URL = `${backendURL(process.env.NODE_ENV!)}/api/v1/`;
 
 export const CONTRIBUTORS: Contributer[] = [
     {
