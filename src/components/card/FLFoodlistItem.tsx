@@ -6,6 +6,7 @@ import { useTheme } from '@mui/material';
 import dayjs from 'dayjs';
 import { getTimeDifference } from '../../common/utils/utils';
 import useCurrentTime from '../../common/hooks/useCurrentTime';
+import { useErrorSnackbar } from '../../contexts/ErrorSnackbarContext';
 
 type FLFoodlistItemProps = {
     title: string;
@@ -24,6 +25,7 @@ export default function FLFoodlistItem({
 }: FLFoodlistItemProps): JSX.Element {
     const { now } = useCurrentTime();
     const theme = useTheme();
+    const { setOpen } = useErrorSnackbar();
 
     const timeLeft = getTimeDifference(now, orderTime as dayjs.Dayjs);
 
@@ -139,7 +141,12 @@ export default function FLFoodlistItem({
                 </FLBox>
             </FLBox>
 
-            <FLBox sx={{ height: '10svh', marginInlineStart: '2%' }}>
+            <FLBox
+                sx={{ height: '10svh', marginInlineStart: '2%', cursor: 'pointer' }}
+                onClick={() => {
+                    setOpen && setOpen(true);
+                }}
+            >
                 <MoreVertRoundedIcon />
             </FLBox>
         </FLBox>

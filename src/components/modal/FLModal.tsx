@@ -19,6 +19,7 @@ export default function FLModal({ open, close, children }: FLModalProps): JSX.El
         <Modal
             open={open}
             onClose={handleClose}
+            disableAutoFocus
             sx={{
                 position: 'absolute',
                 top: '50%',
