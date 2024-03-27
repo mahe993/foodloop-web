@@ -31,6 +31,15 @@ export default function SplashScreen({ pageLoading = true, duration = 1000 }: Sp
         if (!pageLoading) {
             setAnimate(true);
         }
+
+        const timeout = setTimeout(() => {
+            if (pageLoading) {
+                setShowSplash(false);
+                setAnimate(true);
+            }
+        }, 20000);
+
+        return () => clearTimeout(timeout);
     }, [pageLoading]);
 
     useEffect(() => {
