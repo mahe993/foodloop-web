@@ -117,3 +117,38 @@ export function newAbortSignal(timeoutMs?: number): AbortSignal {
 
     return abortController.signal;
 }
+
+export function getFoodImg(category: string, index: number): string {
+    const categoryMax: { [key: string]: number } = {
+        pasta: 24,
+        laksa: 13,
+        'chicken rice': 22,
+        burger: 24,
+        biryani: 12,
+    };
+
+    let idx = index + 1;
+    while (idx > categoryMax[category]) idx = idx - categoryMax[category];
+
+    let cat = category;
+    if (category === 'chicken rice') cat = 'chickenRice';
+
+    return `/assets/images/food/${cat}/${idx}.jpg`;
+}
+
+export function getAlbumImg(category: string, index: number): string {
+    const categoryMax: { [key: string]: number } = {
+        pasta: 9,
+        laksa: 7,
+        'chicken rice': 8,
+        burger: 8,
+        biryani: 8,
+    };
+
+    let idx = index + 1;
+    while (idx > categoryMax[category]) idx = idx - categoryMax[category];
+
+    let cat = category;
+    if (category === 'chicken rice') cat = 'chickenRice';
+    return `/assets/images/album/${cat}/${idx}.jpg`;
+}

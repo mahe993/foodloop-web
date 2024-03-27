@@ -11,7 +11,7 @@ import { useTheme } from '@mui/material';
 import FLModal from '../../components/modal/FLModal';
 import useModal from '../../common/hooks/stateHooks/useModal';
 import { createFoodlist } from '../../api/foodlist/create';
-import { newAbortSignal } from '../../common/utils/utils';
+import { getAlbumImg, newAbortSignal } from '../../common/utils/utils';
 import TextField from '@mui/material/TextField';
 import { DAYS, TIMINGS } from '../../constants';
 import MenuItem from '@mui/material/MenuItem';
@@ -46,7 +46,6 @@ export default function FLFoodListIndex(): JSX.Element {
                 setPage(2);
                 return;
             }
-            console.log(formValues);
             await createFoodlist(`${user?.id}`, newAbortSignal(), {
                 query: formValues.query,
                 recurringDay: formValues.recurringDay,
@@ -122,13 +121,13 @@ export default function FLFoodListIndex(): JSX.Element {
                             </FLBox>
                         ) : (
                             Boolean(playlists.length) &&
-                            playlists.map((playlist: Foodlist) => (
+                            playlists.map((playlist: Foodlist, i) => (
                                 <FLAlbumCover
                                     key={playlist.id}
                                     id={playlist.id}
                                     title={playlist.title}
                                     description={`Every ${playlist.recurringDay}, at ${playlist.recurringTime}`}
-                                    imgURL={playlist.imgURL}
+                                    imgURL={getAlbumImg(playlist.category, i)}
                                 />
                             ))
                         )}

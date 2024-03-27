@@ -9,7 +9,7 @@ import FLPlayButton from '../../components/button/FLPlayButton';
 import FLFoodlistItem from '../../components/card/FLFoodlistItem';
 import FLPauPauLoader from '../../components/loader/FLPauPauLoader';
 import useGetPlaylistStatus from '../../common/hooks/stateHooks/useGetPlaylistStatus';
-import { getNearestTime } from '../../common/utils/utils';
+import { getFoodImg, getNearestTime } from '../../common/utils/utils';
 import dayjs from 'dayjs';
 
 export default function FLFoodListListing(): JSX.Element {
@@ -145,6 +145,7 @@ export default function FLFoodListListing(): JSX.Element {
                             title={food.name}
                             description={food.description || ''}
                             currentSelection={listStatus === PlayState.PLAY && currIdx === food.index}
+                            imgSrc={getFoodImg(food.category, i)}
                             orderTime={
                                 currIdx <= food.index
                                     ? nearestTime.add(i - foods.findIndex(f => f.index === currIdx), 'week')
