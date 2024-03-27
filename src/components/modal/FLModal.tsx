@@ -29,7 +29,7 @@ export default function FLModal({ open, close, children }: FLModalProps): JSX.El
                 height: '100svh',
             }}
         >
-            <Box sx={{ ...style, width: '90%', padding: '4%' }}>{children}</Box>
+            <Box sx={{ ...style, width: '90%', padding: '4%', position: 'relative' }}>{children}</Box>
         </Modal>
     );
 }

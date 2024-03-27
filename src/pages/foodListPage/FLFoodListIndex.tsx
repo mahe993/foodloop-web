@@ -20,6 +20,7 @@ import FLButton from '../../components/button/FLButton';
 import useModalPages from '../../common/hooks/stateHooks/useModalPages';
 import { defaultBoldText, smallLightText } from '../../themes/typography';
 import { keyframes } from '@emotion/react';
+import FLImageBox from '../../components/image/FLImageBox';
 
 export default function FLFoodListIndex(): JSX.Element {
     const user = useUserContext();
@@ -135,6 +136,18 @@ export default function FLFoodListIndex(): JSX.Element {
                 </FLDataTray>
             </FLBox>
             <FLModal open={openModal} close={handleModalClose}>
+                <FLImageBox
+                    boxWidth="100px"
+                    boxHeight="100px"
+                    imgWidth="100px"
+                    imgSrc="/assets/images/ppHang.png"
+                    fallback="/assets/images/albumFallback2.png"
+                    sx={{
+                        position: 'absolute',
+                        top: 0,
+                        transform: 'translateY(-78%)',
+                    }}
+                />
                 {page === 1 && (
                     <>
                         <TextField
