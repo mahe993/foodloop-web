@@ -1,0 +1,15 @@
+export const images = {
+    albumFallback: import('../assets/images/albumFallback.png'),
+    albumFallback2: import('../assets/images/albumFallback2.png'),
+    burgers: import('../assets/images/burgers.png'),
+    chaeseong: import('../assets/images/chaeseong.png'),
+    dinein: import('../assets/images/dinein.png'),
+    foodloop: import('../assets/images/foodloop.png'),
+    pandago: import('../assets/images/pandago.png'),
+    pandamart: import('../assets/images/pandamart.png'),
+    pasta: import('../assets/images/pasta.png'),
+    pickup: import('../assets/images/pickup.png'),
+    ppHang: import('../assets/images/ppHang.png'),
+    profileNoBG: import('../assets/images/profileNoBG.png'),
+    shops: import('../assets/images/shops.png'),
+};
