@@ -111,7 +111,9 @@ export function newAbortSignal(timeoutMs?: number): AbortSignal {
     if (!timeoutMs) timeout = 100000;
 
     const abortController = new AbortController();
-    setTimeout(() => abortController.abort(), timeout);
+    setTimeout(() => {
+        abortController.abort();
+    }, timeout);
 
     return abortController.signal;
 }
