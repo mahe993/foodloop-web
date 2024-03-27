@@ -54,7 +54,7 @@ export default function FLFoodlistItem({
                         boxWidth="100%"
                         boxHeight="15svh"
                         imgSrc={imgSrc}
-                        fallback="../src/assets/images/albumFallback2.png"
+                        fallback="/assets/images/albumFallback2.png"
                         imgHeight="100%"
                     />
                 </FLBox>

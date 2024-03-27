@@ -24,7 +24,7 @@ export default function FLImageBox({
     imgSrc,
     imgWidth,
     imgHeight,
-    fallback = 'src/assets/images/foodloop.png',
+    fallback = '/assets/images/foodloop.png',
     sx,
 }: FLImageBoxProps): JSX.Element {
     return (

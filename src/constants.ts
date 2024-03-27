@@ -7,7 +7,7 @@ export const CONTRIBUTORS: Contributer[] = [
         role: 'Software Engineer',
         ghURL: 'https://github.com/mahe993/',
         linkedinURL: 'https://www.linkedin.com/in/quekmahe/',
-        profilePicURL: 'src/assets/images/profileNoBG.png',
+        profilePicURL: '/assets/images/profileNoBG.png',
     },
     {
         id: 3,
@@ -15,7 +15,7 @@ export const CONTRIBUTORS: Contributer[] = [
         role: 'Software Engineer',
         ghURL: 'https://github.com/chae-seong/',
         linkedinURL: 'https://www.linkedin.com/in/chaeseong-park/',
-        profilePicURL: 'src/assets/images/chaeseong.png',
+        profilePicURL: '/assets/images/chaeseong.png',
     },
     {
         id: 1,
@@ -47,7 +47,7 @@ export const whiteList = new Set([997, 998, 999]);
 //         recurringTime: '19:00',
 //         currentFoodIdx: 3,
 //         status: PlayState.PLAY,
-//         imgURL: 'src/assets/images/burgers.png',
+//         imgURL: '/assets/images/burgers.png',
 //     },
 //     {
 //         id: 2,
@@ -57,7 +57,7 @@ export const whiteList = new Set([997, 998, 999]);
 //         recurringTime: '12:30',
 //         currentFoodIdx: 0,
 //         status: PlayState.PAUSE,
-//         imgURL: 'src/assets/images/pasta.png',
+//         imgURL: '/assets/images/pasta.png',
 //     },
 // ];
 

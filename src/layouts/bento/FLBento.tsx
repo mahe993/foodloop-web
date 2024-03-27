@@ -34,7 +34,7 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
             >
                 <BentoItem
                     description="New, experimental food playlist feature!"
-                    imgSrc="src/assets/images/foodloop.png"
+                    imgSrc="/assets/images/foodloop.png"
                     sx={{ flex: 0.54 }}
                     title="Food loop"
                     onClick={() => {
@@ -43,13 +43,13 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
                 />
                 <BentoItem
                     description="Up to 50% off"
-                    imgSrc="src/assets/images/pick-up.png"
+                    imgSrc="/assets/images/pickup.png"
                     sx={{ flex: 0.23, flexDirection: 'row' }}
                     title="Pick-up"
                 />
                 <BentoItem
                     description="Send parcels"
-                    imgSrc="src/assets/images/pandago.png"
+                    imgSrc="/assets/images/pandago.png"
                     sx={{ flex: 0.23, flexDirection: 'row' }}
                     title="pandago"
                 />
@@ -63,19 +63,19 @@ export default function FLBento({ sx }: BentoProps): JSX.Element {
             >
                 <BentoItem
                     description="Fresh groceries & more"
-                    imgSrc="src/assets/images/pandamart.png"
+                    imgSrc="/assets/images/pandamart.png"
                     sx={{ flex: 0.385 }}
                     title="pandamart"
                 />
                 <BentoItem
                     description="Giant, CS Fresh & more"
-                    imgSrc="src/assets/images/shops.png"
+                    imgSrc="/assets/images/shops.png"
                     sx={{ flex: 0.385 }}
                     title="Shops"
                 />
                 <BentoItem
                     description="Up to 50% off Entire bill"
-                    imgSrc="src/assets/images/dine-in.png"
+                    imgSrc="/assets/images/dinein.png"
                     sx={{ flex: 0.23, flexDirection: 'row' }}
                     title="Dine-in"
                 />

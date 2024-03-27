@@ -37,7 +37,7 @@ export default function FLAlbumCover({ id, title, description, imgURL = '' }: FL
                 boxHeight="80%"
                 imgHeight="100%"
                 imgSrc={imgURL}
-                fallback="src/assets/images/albumFallback2.png"
+                fallback="/assets/images/albumFallback2.png"
                 sx={{
                     position: 'absolute',
                     top: 0,

@@ -19,7 +19,7 @@ export function FLContributorProfileCard({
     role,
     ghURL,
     linkedinURL,
-    profilePicURL = 'src/assets/images/foodloop.png',
+    profilePicURL = '/assets/images/foodloop.png',
     sx,
 }: FLContributorProfileCardProps): JSX.Element {
     const theme = useTheme();
