@@ -40,6 +40,7 @@ export const CONTRIBUTORS: Contributer[] = [
         role: 'Software Engineer',
         ghURL: 'https://github.com/koushireo',
         linkedinURL: 'https://www.linkedin.com/in/chi-hen-foo/',
+        profilePicURL: '/assets/images/chihen.png',
     },
 ];
 
