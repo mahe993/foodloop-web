@@ -15,6 +15,11 @@ export function defaultAction(logMsg: string): VoidFunction {
     };
 }
 
+// getRandomID generates a random number between 1 - max inclusive
+export function getRandomID(max: number): number {
+    return Math.floor(Math.random() * max) + 1;
+}
+
 export function getContributors(): Contributer[] {
     return CONTRIBUTORS.sort(() => Math.random() - 0.5);
 }

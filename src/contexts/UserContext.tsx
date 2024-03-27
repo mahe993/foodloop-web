@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { User } from '../common/hooks/stateHooks/types';
-import { getContributors, newAbortSignal } from '../common/utils/utils';
+import { getRandomID, newAbortSignal } from '../common/utils/utils';
 import { getUser } from '../api/user/read';
 
 type UserContext = User;
@@ -23,7 +23,7 @@ export default function UserContextProvider({ children }: { children: ReactNode 
 
     useEffect(() => {
         // fetch user data
-        const { id } = getContributors()[0];
+        const id = getRandomID(14);
         getAndSetUser(id);
     }, []);
 
