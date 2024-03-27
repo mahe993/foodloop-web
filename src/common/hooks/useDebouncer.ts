@@ -6,7 +6,7 @@ export default function useDebouncer(value: number | string, delay: number): Use
     const [debouncedValue, setDebouncedValue] = useState<number | string>(value);
 
     useEffect(() => {
-        let timeoutId: number;
+        let timeoutId: NodeJS.Timeout;
 
         const debounceFunction = (): void => {
             clearTimeout(timeoutId);

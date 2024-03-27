@@ -5,8 +5,8 @@ export default function useRefresh(duration: number): number {
     const [refreshCount, setRefreshCount] = useState<number>(0);
 
     useEffect(() => {
-        let intervalId: number;
-        let timeoutId: number;
+        let intervalId: NodeJS.Timeout;
+        let timeoutId: NodeJS.Timeout;
 
         const refreshComponent = (): void => {
             // Set up interval to refresh the component every second
