@@ -18,7 +18,7 @@ export default function SplashScreen({ pageLoading = true, duration = 1000 }: Sp
     const [display, setDisplay] = useState(true);
     const [showSplash, setShowSplash] = useState(true);
     const [animate, setAnimate] = useState(false);
-    const msgIdx = useRefresh(10000);
+    const msgIdx = useRefresh(20000);
 
     const {
         session: { fuxSplash },

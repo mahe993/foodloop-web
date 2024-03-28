@@ -12,7 +12,7 @@ export default function useRefresh(duration: number): number {
             // Set up interval to refresh the component every second
             intervalId = setInterval(() => {
                 setRefreshCount(prevCount => prevCount + 1);
-            }, 1000);
+            }, 1500);
 
             // Set up timeout to clear the interval after totalDuration
             timeoutId = setTimeout(() => {
